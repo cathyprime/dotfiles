@@ -1,6 +1,6 @@
 #!/bin/bash
 
-config=$HOME/.config/
+config=$HOME/.config
 
 ln -rs picom.conf $config/
 ln -rs alacritty.yml $config/alacritty/
