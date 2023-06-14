@@ -447,6 +447,18 @@
 #    summary = *says*
 #    urgency = critical
 #
+[usb_in]
+    summary = "Device mounted"
+    script = ./scripts/hardware_insert.sh
+[usb_out]
+    summary = "Device unmounted"
+    script = ./scripts/hardware_remove.sh
+[usb_fail]
+    summary = "Command failed: udiskie-mount --recursive /dev/*"
+    script = ./scripts/hardware_fail.sh
+[play_sound]
+    summary = "*"
+    script = ./scripts/ballon.sh
 #[twitter]
 #    appname = Pidgin
 #    summary = *twitter.com*
