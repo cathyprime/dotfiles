@@ -1,3 +1,3 @@
 #!/bin/bash
 
-paplay "Windows XP Hardware Fail.wav"
+paplay "$HOME/.config/dunst/Windows XP Hardware Fail.wav"

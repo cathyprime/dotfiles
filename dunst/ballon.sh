@@ -1,3 +1,3 @@
 #!/bin/bash
 
-paplay "Windows XP Balloon.wav"
+paplay "$HOME/.config/dunst/Windows XP Balloon.wav"

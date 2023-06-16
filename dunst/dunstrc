@@ -449,16 +449,16 @@
 #
 [usb_in]
     summary = "Device mounted"
-    script = ./hardware_insert.sh
+    script = ~/.config/dunst/hardware_insert.sh
 [usb_out]
     summary = "Device unmounted"
-    script = ./hardware_remove.sh
+    script = ~/.config/dunst/hardware_remove.sh
 [usb_fail]
     summary = "Command failed: udiskie-mount --recursive /dev/*"
-    script = ./hardware_fail.sh
+    script = ~/.config/dunst/hardware_fail.sh
 [play_sound]
     summary = "*"
-    script = ./ballon.sh
+    script = ~/.config/dunst/ballon.sh
 #[twitter]
 #    appname = Pidgin
 #    summary = *twitter.com*

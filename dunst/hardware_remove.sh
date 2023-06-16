@@ -1,3 +1,3 @@
 #!/bin/bash
 
-paplay "Windows XP Hardware Remove.wav"
+paplay "$HOME/.config/dunst/Windows XP Hardware Remove.wav"

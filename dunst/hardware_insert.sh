@@ -1,3 +1,3 @@
 #!/bin/bash
 
-paplay "Windows XP Hardware Insert.wav"
+paplay "$HOME/.config/dunst/Windows XP Hardware Insert.wav"
