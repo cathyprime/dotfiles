@@ -1,0 +1,45 @@
+#!/usr/bin/expect -f
+
+set device "94:DB:56:6E:8F:9B"
+set controller "48:68:4A:7A:6A:F1"
+set timeout 30
+set isPaired 0
+
+spawn bluetoothctl
+expect "Agent registered"
+send -- "power on\r"
+expect "Changing power on succeeded"
+# send -- "remove $device\r"
+# expect {
+#     "Device has been removed" {}
+#     "Device $device not available" {}
+# }
+send -- "list\r"
+expect "$controller"
+send -- "select $controller\r"
+send -- "devices\r"
+set timeout 1
+expect {
+    "Device $device" {}
+    timeout {
+        set timeout 30
+        send -- "scan on\r"
+        expect "$device"
+        while { $isPaired == 0 } {
+            send -- "pair $device\r"
+            expect {
+                "Pairing successful" {set isPaired 1}
+                "Failed to pair: org.bluez.Error.ConnectionAttemptFailed" {}
+                "Failed to pair: org.bluez.Error.AlreadyExists" {set isPaired 1}
+            }
+        }
+        send -- "scan off\r"
+    }
+}
+set timeout 30
+send -- "connect $device\r"
+expect "Connection successful"
+send -- "trust $device\r"
+expect "trust succeeded"
+send -- "exit\r"
+expect eof
