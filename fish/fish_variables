@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR EDITOR:/usr/bin/nvim
+SETUVAR --export EDITOR:nvim
 SETUVAR M_DISABLE:true
 SETUVAR SSH_AUTH_SOCK:/run/user/1000/ssh\x2dagent\x2esocket
 SETUVAR VISUAL:nvim
