@@ -16,7 +16,6 @@
       glow
       lazygit
       neofetch
-      neovim
       nodejs_20
       ripgrep
       rustup
