@@ -9,4 +9,3 @@ pushd ~/.config/home-manager
 for file in "$configs"/*.nix; do
 	ln "$file"
 done
-fish "$configs"/home.fish
