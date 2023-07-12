@@ -1,5 +1,12 @@
 #!/bin/bash
 
 sh <(curl -L https://nixos.org/nix/install) --no-daemon
-source ~/.nix-profile/etc/profile.d/nix.sh
-bash home-manager.sh
+
+rm -r ~/.config/home-manager
+mkdir -p ~/.config/home-manager
+configs=$(pwd)
+pushd ~/.config/home-manager
+for file in "$configs"/*.nix; do
+	ln "$file"
+done
+fish "$configs"/home.fish

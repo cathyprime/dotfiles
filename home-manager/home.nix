@@ -7,6 +7,7 @@
 
     packages = with pkgs; [
       bat
+      bat-extras.batman
       btop
       delta
       erdtree
@@ -31,4 +32,6 @@
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
+
+  programs.home-manager.enable = true;
 }
