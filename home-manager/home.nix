@@ -22,6 +22,7 @@
       rustup
       spotify
       starship
+      stow
       zellij
     ];
 

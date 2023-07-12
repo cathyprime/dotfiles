@@ -1,0 +1,17 @@
+[core]
+	pager = "delta"
+
+[delta]
+	light = false
+	line-numbers = true
+	navigate = true
+
+[interactive]
+	diffFilter = "delta --color-only"
+
+[pull]
+	rebase = true
+
+[user]
+	email = "jaroszynskijulian@gmail.com"
+	name = "Yoolayn"
