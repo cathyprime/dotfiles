@@ -15,13 +15,16 @@
       gh
       glow
       lazygit
+      lua54Packages.luarocks
       neofetch
       nodejs_20
+      python311Packages.pip
       ripgrep
       rustup
       spotify
       starship
       stow
+      tree-sitter
       zellij
     ];
 
