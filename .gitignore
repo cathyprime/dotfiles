@@ -1,2 +1,4 @@
 fish/conf.d/nix.fish
 .config/polybar/headp-status
+.config/fish/conf.d/nix.fish
+.config/fish/fish_variables
