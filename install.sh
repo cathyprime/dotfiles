@@ -6,3 +6,4 @@ cd ..
 bash home-manager/home.sh
 bash scripts/stow.sh
 bash scripts/bob-nvim.sh
+bash scripts/font.sh
