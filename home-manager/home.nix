@@ -11,7 +11,9 @@
       btop
       delta
       erdtree
+      exa
       fd
+      font-awesome
       gh
       glow
       lazygit
@@ -21,7 +23,6 @@
       python311Packages.pip
       ripgrep
       rustup
-      spotify
       starship
       stow
       tree-sitter
