@@ -20,7 +20,7 @@
       lua54Packages.luarocks
       neofetch
       nodejs_20
-      python311Packages.pip
+      qmk
       ripgrep
       rustup
       starship
