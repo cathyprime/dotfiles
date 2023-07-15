@@ -9,6 +9,7 @@
       bat
       bat-extras.batman
       btop
+      coursier
       delta
       erdtree
       exa
