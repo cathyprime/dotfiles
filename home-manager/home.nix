@@ -24,6 +24,7 @@
       qmk
       ripgrep
       rustup
+      jdk17
       starship
       stow
       tree-sitter
