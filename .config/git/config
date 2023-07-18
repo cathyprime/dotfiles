@@ -15,3 +15,7 @@
 [user]
 	email = "jaroszynskijulian@gmail.com"
 	name = "Yoolayn"
+
+[alias]
+	lg = "!f() { git log --graph --decorate --oneline -n $1; }; f"
+	lg4 = log --graph --decorate --oneline -n4
