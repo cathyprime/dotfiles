@@ -9,6 +9,7 @@ bash home-manager/home.sh
 bash scripts/font.sh
 bash scripts/prestow.sh
 bash scripts/stow.sh
+
 if [ "$(basename $SHELL)" = "fish" ]; then
 	echo -e "${RED}press <c-d> (ctrl + d) when you see: \"${GREEN}read${NC}>${RED}\"${NC}"
 	fish scripts/fish.sh
@@ -48,3 +49,5 @@ while true; do
 		esac
 	fi
 done
+
+bash systemd/install.sh

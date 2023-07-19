@@ -1,5 +1,6 @@
 \.git
 home-manager
+systemd
 scripts
 ^/.*\.sh
 ^\.gitignore$
