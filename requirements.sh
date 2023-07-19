@@ -13,14 +13,14 @@ if ! [[ $(cat /etc/os-release | grep 'NAME="Debian GNU/Linux"') || $1 == "--forc
 fi
 
 while true; do
-	echo "do you want to use nala instead of apt? (y/n)"
+	echo "do you want to use nala instead of apt? (Y/n)"
 	read apt_choice
 	case $apt_choice in
-	"n")
+	"n" | "N")
 		pkg=apt
 		break
 		;;
-	"y")
+	"y" | "Y" | "")
 		sudo apt install nala -y
 		pkg=nala
 		break
@@ -42,13 +42,13 @@ echo
 
 fish_path=$(grep -o '/.*fish' /etc/shells)
 while true; do
-	echo "set fish as default? (y/n)"
+	echo "set fish as default? (Y/n)"
 	read fish_choice
 	case $fish_choice in
-	"n")
+	"n" | "N")
 		break
 		;;
-	"y")
+	"y" | "Y" | "")
 		chsh -s $fish_path $USER
 		break
 		;;
@@ -57,13 +57,13 @@ while true; do
 done
 
 while true; do
-	echo "install nvidia drivers? (y/n)"
+	echo "install nvidia drivers? (Y/n)"
 	read nvidia_choice
 	case $nvidia_choice in
-	"n")
+	"n" | "N")
 		break
 		;;
-	"y")
+	"y" | "Y" | "")
 		case $pkg in
 		"nala")
 			sudo nala install linux-headers-amd64 sed -y
@@ -85,13 +85,13 @@ while true; do
 done
 
 while true; do
-	echo "reboot? required for chsh, you have to reboot before running install script (y/n)"
+	echo "reboot? required for chsh, you have to reboot before running install script (y/N)"
 	read reboot_choice
 	case $reboot_choice in
-	"n")
+	"n" | "N" | "")
 		break
 		;;
-	"y")
+	"y" | "Y")
 		sudo reboot
 		;;
 	*) ;;

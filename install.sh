@@ -4,10 +4,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-pushd ./home-manager/
-./nix.sh
-popd
-
+bash home-manager/nix.sh
 bash home-manager/home.sh
 bash scripts/font.sh
 bash scripts/prestow.sh
@@ -19,14 +16,14 @@ if [ "$(basename $SHELL)" = "fish" ]; then
 fi
 
 while true; do
-	echo "configure github cli?(y/n)"
+	echo "configure github cli?(Y/n)"
 	read gh_choice
 	case $gh_choice in
-	"y")
+	"y" | "Y" | "")
 		gh auth login
 		break
 		;;
-	"n")
+	"n" | "N")
 		break
 		;;
 	*) ;;
@@ -37,14 +34,14 @@ while true; do
 	if [ "$gh_choice" = "n" ]; then
 		break
 	else
-		echo "configure neovim?(y/n)"
+		echo "configure neovim?(Y/n)"
 		read nvim_choice
 		case $nvim_choice in
-		"y")
+		"y" | "Y" | "")
 			fish scripts/nvim.sh
 			break
 			;;
-		"n")
+		"n" | "N")
 			break
 			;;
 		*) ;;
