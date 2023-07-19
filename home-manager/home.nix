@@ -17,6 +17,7 @@
       font-awesome
       gh
       glow
+      jdk17
       lazygit
       lua54Packages.luarocks
       neofetch
@@ -24,10 +25,10 @@
       qmk
       ripgrep
       rustup
-      jdk17
       starship
       stow
       tree-sitter
+	  yt-dlp
       zellij
     ];
 
