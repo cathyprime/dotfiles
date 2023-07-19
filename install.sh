@@ -1,13 +1,19 @@
 #!/bin/bash
 
-cd ./home-manager/
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+pushd ./home-manager/
 ./nix.sh
-cd ..
+popd
+
 bash home-manager/home.sh
 bash scripts/font.sh
 bash scripts/prestow.sh
 bash scripts/stow.sh
 if [ "$(basename $SHELL)" = "fish" ]; then
+	echo -e "${RED}press <c-d> (ctrl + d) when you see: \"${GREEN}read${NC}>${RED}\"${NC}"
 	fish scripts/fish.sh
 	fish scripts/bob-nvim.sh
 fi
