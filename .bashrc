@@ -33,5 +33,5 @@ alias zl='zellij -l compact'
 alias zr='zellij run --'
 
 # >>> coursier install directory >>>
-export PATH="$PATH:/home/yoolayna/.local/share/coursier/bin"
+export PATH="$PATH:$USER/.local/share/coursier/bin"
 # <<< coursier install directory <<<
