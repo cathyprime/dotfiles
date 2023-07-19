@@ -17,5 +17,4 @@
 	name = "Yoolayn"
 
 [alias]
-	lg = "!f() { git log --graph --decorate --oneline -n $1; }; f"
-	lg4 = log --graph --decorate --oneline -n4
+	lg = "!f() { git log --graph --decorate --oneline -n ${1:-10}; }; f"
