@@ -11,9 +11,9 @@ if ! [[ $(cat /etc/os-release | grep 'NAME="Debian GNU/Linux"') || $1 == "--forc
 	echo "if you use apt in your distribution invoke this script with --force"
 	exit 0
 fi
-echo "do you want to use nala instead of apt? (y/n)"
 
 while true; do
+	echo "do you want to use nala instead of apt? (y/n)"
 	read apt_choice
 	case $apt_choice in
 	"n")
@@ -25,9 +25,7 @@ while true; do
 		pkg=nala
 		break
 		;;
-	*)
-		echo "do you want to use nala instead of apt? (y/n)"
-		;;
+	*) ;;
 	esac
 done
 
@@ -42,9 +40,9 @@ esac
 
 echo
 
-echo "set fish as default? (y/n)"
 fish_path=$(grep -o '/.*fish' /etc/shells)
 while true; do
+	echo "set fish as default? (y/n)"
 	read fish_choice
 	case $fish_choice in
 	"n")
@@ -54,14 +52,12 @@ while true; do
 		chsh -s $fish_path $USER
 		break
 		;;
-	*)
-		echo "set fish as default? (y/n)"
-		;;
+	*) ;;
 	esac
 done
 
-echo "install nvidia drivers? (y/n)"
 while true; do
+	echo "install nvidia drivers? (y/n)"
 	read nvidia_choice
 	case $nvidia_choice in
 	"n")
@@ -84,14 +80,12 @@ while true; do
 		esac
 		break
 		;;
-	*)
-		echo "install nvidia drivers? (y/n)"
-		;;
+	*) ;;
 	esac
 done
 
-echo "reboot? required for chsh, you have to reboot before running install script (y/n)"
 while true; do
+	echo "reboot? required for chsh, you have to reboot before running install script (y/n)"
 	read reboot_choice
 	case $reboot_choice in
 	"n")
@@ -100,9 +94,7 @@ while true; do
 	"y")
 		sudo reboot
 		;;
-	*)
-		echo "reboot? required for chsh, you have to reboot before running install script (y/n)"
-		;;
+	*) ;;
 	esac
 done
 
