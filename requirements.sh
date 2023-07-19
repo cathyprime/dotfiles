@@ -5,7 +5,7 @@ if ! [[ $(cat /etc/os-release | grep 'NAME="Debian GNU/Linux"') || $1 == "--forc
 	echo "if you don't have apt then stop this script and install these packages:"
 	echo "- curl"
 	echo "- git"
-	echo "- fish"
+	echo "- fish (optional)"
 	echo "then run chsh -s path/to/fish <username>"
 	echo "and reboot the pc"
 	echo "if you use apt in your distribution invoke this script with --force"
@@ -42,8 +42,23 @@ esac
 
 echo
 
+echo "set fish as default? (y/n)"
 fish_path=$(grep -o '/.*fish' /etc/shells)
-chsh -s $fish_path $USER
+while true; do
+	read fish_choice
+	case $fish_choice in
+	"n")
+		break
+		;;
+	"y")
+		chsh -s $fish_path $USER
+		break
+		;;
+	*)
+		echo "set fish as default? (y/n)"
+		;;
+	esac
+done
 
 echo "install nvidia drivers? (y/n)"
 while true; do
