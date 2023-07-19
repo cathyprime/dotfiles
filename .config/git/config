@@ -18,3 +18,4 @@
 
 [alias]
 	lg = "!f() { git log --graph --decorate --oneline -n ${1:-10}; }; f"
+	please = "push --force-with-lease"
