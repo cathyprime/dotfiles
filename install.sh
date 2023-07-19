@@ -28,7 +28,7 @@ while true; do
 done
 
 while true; do
-	if [ "gh_choice" = "n" ]; then
+	if [ "$gh_choice" = "n" ]; then
 		break
 	else
 		echo "configure neovim?(y/n)"
