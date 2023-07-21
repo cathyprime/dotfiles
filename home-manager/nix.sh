@@ -8,5 +8,5 @@ mkdir -p ~/.config/home-manager
 configs=$(pwd)
 pushd ~/.config/home-manager
 for file in "$configs"/*.nix; do
-	ln -s "$file"
+	cp "$file" .
 done
