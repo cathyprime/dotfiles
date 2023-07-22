@@ -19,6 +19,7 @@
       glow
       jdk17
       lazygit
+	  lua
       lua54Packages.luarocks
       neofetch
       nodejs_20
