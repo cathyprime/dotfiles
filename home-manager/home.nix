@@ -6,31 +6,31 @@
     homeDirectory = "/home/yoolayn";
 
     packages = with pkgs; [
-      bat
-      bat-extras.batman
-      btop
-      coursier
-      delta
-      erdtree
-      exa
-      fd
-      font-awesome
-      gh
-      glow
-      jdk17
-      lazygit
-	  lua
-      lua54Packages.luarocks
-      neofetch
-      nodejs_20
-      qmk
-      ripgrep
-      rustup
-      starship
-      stow
-      tree-sitter
-	  yt-dlp
-      zellij
+		bat
+		bat-extras.batman
+		btop
+		coursier
+		delta
+		erdtree
+		exa
+		fd
+		font-awesome
+		gh
+		glow
+		jdk17
+		lazygit
+		lua
+		lua54Packages.luarocks
+		neofetch
+		nodejs_20
+		qmk
+		ripgrep
+		rustup
+		starship
+		stow
+		tree-sitter
+		yt-dlp
+		zellij
     ];
 
     stateVersion = "23.05";
