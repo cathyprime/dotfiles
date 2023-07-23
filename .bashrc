@@ -18,7 +18,6 @@ alias clip='xclip -sel c'
 alias find=fd
 alias gs='git status'
 alias la='exa -la --git --group-directories-first'
-alias lg=lazygit
 alias ll='exa -l --git --group-directories-first'
 alias ls='exa --git --group-directories-first'
 alias lt4='exa --tree --level=4 --long --icons --git --group-directories-first'
@@ -35,3 +34,11 @@ alias zr='zellij run --'
 # >>> coursier install directory >>>
 export PATH="$PATH:$USER/.local/share/coursier/bin"
 # <<< coursier install directory <<<
+
+function lg() {
+	if [ $# -gt 0 ]; then
+		lazygit -p "$@"
+	else
+		lazygit
+	fi
+}
