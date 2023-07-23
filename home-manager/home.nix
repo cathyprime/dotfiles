@@ -15,6 +15,7 @@
 		exa
 		fd
 		font-awesome
+		fzf
 		gh
 		glow
 		jdk17
