@@ -29,6 +29,7 @@
 		rustup
 		starship
 		stow
+        tmux
 		tree-sitter
         yarn
 		yt-dlp
