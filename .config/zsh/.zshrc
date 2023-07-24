@@ -1,7 +1,7 @@
-source ~/.config/zsh/completion/nix-zsh-completions/nix-zsh-completions.plugin.zsh
-fpath=($HOME/.config/zsh/completion/nix-zsh-completions $fpath)
-autoload -U compinit && compinit
-source ~/.config/zsh/completion/git-completion.zsh
+# source ~/.config/zsh/completion/nix-zsh-completions/nix-zsh-completions.plugin.zsh
+# fpath=($HOME/.config/zsh/completion/nix-zsh-completions $fpath)
+# autoload -U compinit && compinit
+# source ~/.config/zsh/completion/git-completion.zsh
 
 eval $(starship init zsh)
 
