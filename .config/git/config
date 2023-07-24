@@ -17,7 +17,8 @@
 	name = "Yoolayn"
 
 [alias]
-	lg = "!f() { git log --graph --decorate --oneline -n ${1:-10}; }; f"
-	please = "push --force-with-lease"
 	ai = "add --interactive"
     c = "commit"
+	lg = "!f() { git log --graph --decorate --oneline -n ${1:-10}; }; f"
+	please = "push --force-with-lease"
+    tree = "log --graph --decorate --oneline --all"
