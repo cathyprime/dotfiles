@@ -89,7 +89,8 @@ while true; do
 done
 
 touch ~/.config/zsh/.zshenv
-pushd ~/
+mkdir -p ~/.config/bash
+pushd ~/.config/bash/
 ln -s ~/.config/zsh/.zshenv ./.bashenv
 popd
 

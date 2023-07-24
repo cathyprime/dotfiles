@@ -1,5 +1,6 @@
 # set all the path variables inside this file
-source ~/.bashenv
+source ~/.config/bash/.bashenv
+source ~/.config/bash/completion/git-completion.bash
 
 eval "$(starship init bash)"
 

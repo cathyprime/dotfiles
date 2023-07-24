@@ -17,8 +17,13 @@ if [ "$(basename $SHELL)" = "fish" ]; then
 fi
 
 if [ "$(basename $SHELL)" = "zsh" ]; then
-	zsh scripts zsh.sh
+	zsh scripts/zsh.sh
 	zsh scripts/bob-nvim.sh
+fi
+
+if [ "$(basename $SHELL)" = "bash" ]; then
+	bash scripts/bash.sh
+	bash scripts/bob-nvim.sh
 fi
 
 while true; do
