@@ -88,6 +88,11 @@ while true; do
 	esac
 done
 
+touch ~/.config/zsh/.zshenv
+pushd ~/
+ln -s ~/.config/zsh/.zshenv ./.bashenv
+popd
+
 while true; do
 	echo "reboot? required for chsh, you have to reboot before running install script (y/N)"
 	read reboot_choice

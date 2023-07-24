@@ -1,3 +1,6 @@
+# set all the path variables inside this file
+source ~/.bashenv
+
 eval "$(starship init bash)"
 
 bind "set completion-ignore-case on"

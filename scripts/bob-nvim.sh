@@ -9,8 +9,8 @@ if [ "$(basename $SHELL)" = "fish" ]; then
 fi
 
 if [ "$(basename $SHELL)" = "zsh" ]; then
-	echo 'export PATH="$PATH:~/.local/share/bob/nvim"' >>~/.config/zsh/.zshenv
-	echo 'export PATH="$PATH:~/.cargo/bin"' >>~/.config/zsh/.zshenv
+	echo 'export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"' >>~/.config/zsh/.zshenv
+	echo 'export PATH="$PATH:$HOME/.cargo/bin"' >>~/.config/zsh/.zshenv
 fi
 
 bob install latest
