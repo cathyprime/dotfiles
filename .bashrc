@@ -42,3 +42,11 @@ function lg() {
 		lazygit
 	fi
 }
+
+function lt() {
+	if [ $1 -gt 0 ]; then
+		exa --tree --level=$1 --long --icons --git --group-directories-first
+	else
+		exa --tree --level=2 --long --icons --git --group-directories-first
+	fi
+}
