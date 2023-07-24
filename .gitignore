@@ -2,3 +2,6 @@
 .config/fish/fish_variables
 .config/polybar/headp-status
 home-manager/flake.lock
+.config/zsh/zsh-autosuggestions
+.config/zsh/zsh-syntax-highlighting
+.config/zsh/zsh_history

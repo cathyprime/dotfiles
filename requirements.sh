@@ -31,24 +31,28 @@ done
 
 case $pkg in
 "nala")
-	sudo nala install curl git fish -y
+	sudo nala install curl git fish zsh -y
 	;;
 "apt")
-	sudo apt install curl git fish -y
+	sudo apt install curl git fish zsh -y
 	;;
 esac
 
-echo
-
+zsh_path=$(grep -o '/.*zsh' /etc/shells)
 fish_path=$(grep -o '/.*fish' /etc/shells)
 while true; do
-	echo "set fish as default? (Y/n)"
-	read fish_choice
-	case $fish_choice in
-	"n" | "N")
+	echo "choose default shell (Bash/zsh/fish):"
+	echo "all shells will be setup"
+	read shell_choice
+	case $shell_choice in
+	"bash" | "")
 		break
 		;;
-	"y" | "Y" | "")
+	"zsh")
+		chsh -s $zsh_path $USER
+		break
+		;;
+	"fish")
 		chsh -s $fish_path $USER
 		break
 		;;

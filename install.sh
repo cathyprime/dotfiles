@@ -16,6 +16,11 @@ if [ "$(basename $SHELL)" = "fish" ]; then
 	fish scripts/bob-nvim.sh
 fi
 
+if [ "$(basename $SHELL)" = "zsh" ]; then
+	zsh scripts zsh.sh
+	zsh scripts/bob-nvim.sh
+fi
+
 while true; do
 	echo "configure github cli?(Y/n)"
 	read gh_choice
