@@ -30,6 +30,7 @@
 		starship
 		stow
 		tree-sitter
+        yarn
 		yt-dlp
 		zellij
     ];
