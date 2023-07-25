@@ -50,6 +50,14 @@ function lt() {
     fi
 }
 
+function tw() {
+    if (( $# > 0 )); then
+        tmux-workspace $1
+    else
+        tmux-workspace
+    fi
+}
+
 function lg() {
 	if (( $# > 0 )); then
 		lazygit -p "$@"
