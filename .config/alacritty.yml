@@ -1,3 +1,7 @@
+window:
+  opacity: 0.85
+  decorations: None
+
 font:
   normal:
     family: Hack Nerd Font Mono
