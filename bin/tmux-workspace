@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
+paths=(
+	~/Repositories
+	~/Repositories/neovim-plugins
+	~/Repositories/dotfiles/.config
+)
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(fd . --exclude=misc --exclude=qmk_firmware --exact-depth=1 -t d -H ~/Repositories ~/Repositories/neovim-plugins ~/Repositories/dotfiles/.config | cat - <(echo "$HOME/.config/nvim") | fzf)
+	selected=$(fd . --exclude=misc --exclude=qmk_firmware --exact-depth=1 -t d -H ${paths[*]} | cat - <(echo "$HOME/.config/nvim") | fzf)
 	echo $selected
 fi
 
