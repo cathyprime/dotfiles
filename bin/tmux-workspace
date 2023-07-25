@@ -1,15 +1,24 @@
 #!/usr/bin/env bash
 
+# add paths where to search for projects here
 paths=(
 	~/Repositories
 	~/Repositories/neovim-plugins
 	~/Repositories/dotfiles/.config
 )
 
+# here are some folders by itself
+additional_choices=$(
+	cat <<EOC
+$HOME/.config/nvim
+$HOME/Repositories/dotfiles/.config/
+EOC
+)
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(fd . --exclude=misc --exclude=qmk_firmware --exact-depth=1 -t d -H ${paths[*]} | cat - <(echo "$HOME/.config/nvim") | fzf)
+	selected=$(fd . --exclude=misc --exclude=qmk_firmware --exact-depth=1 -t d -H ${paths[*]} | cat - <(echo -e "$additional_choices") | fzf)
 	echo $selected
 fi
 
