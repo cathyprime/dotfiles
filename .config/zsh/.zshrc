@@ -13,7 +13,15 @@ source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 HISTSIZE=10000
 SAVEHIST=10000
 
-bindkey '^R' history-incremental-search-backward
+search-history() {
+    zle -U $(awk -F', ' '!a[$1 FS $2]++' ~/.config/zsh/zsh_history | fzf)
+}
+
+new-session() {}
+
+zle -N search-history
+
+bindkey '^R' search-history
 
 setopt autocd
 setopt autolist
