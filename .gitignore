@@ -6,5 +6,5 @@ home-manager/flake.lock
 .config/zsh/zsh-syntax-highlighting
 .config/zsh/zsh_history
 .config/zsh/.zshenv
-.config/zsh/completion
 .config/zsh/.zcompdump
+.config/zsh/completions
