@@ -49,3 +49,9 @@ function lg() {
 		lazygit
 	fi
 }
+
+echo
+echo
+echo "  $(date)"
+echo "  $(date +%Y) the year of linux desktop!"
+echo
