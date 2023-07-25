@@ -1,4 +1,5 @@
 fpath=($HOME/.config/zsh/completions $fpath)
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -U compinit; compinit
 
 eval $(starship init zsh)
@@ -12,6 +13,8 @@ source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 HISTSIZE=10000
 SAVEHIST=10000
 
+bindkey '^R' history-incremental-search-backward
+
 setopt autocd
 setopt autolist
 setopt appendhistory
@@ -20,7 +23,6 @@ alias amm=amm-31
 alias cat=bat
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
-alias find=fd
 alias gs='git status'
 alias la='exa -la --git --group-directories-first'
 alias ll='exa -l --git --group-directories-first'
