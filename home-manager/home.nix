@@ -22,6 +22,7 @@
 		lazygit
 		lua
 		lua54Packages.luarocks
+        man
 		neofetch
 		nodejs_20
 		qmk
@@ -45,4 +46,8 @@
   };
 
   programs.home-manager.enable = true;
+  programs.man = {
+      enable = true;
+      generateCaches = true;
+  };
 }
