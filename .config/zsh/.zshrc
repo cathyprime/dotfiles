@@ -14,7 +14,10 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 search-history() {
-    zle -U $(awk -F', ' '!a[$1 FS $2]++' ~/.config/zsh/zsh_history | fzf)
+    selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden)
+    if [[ -n $selected ]]; then
+        zle -U "$selected"
+    fi
 }
 
 new-session() {}
@@ -25,7 +28,7 @@ bindkey '^R' search-history
 
 setopt autocd
 setopt autolist
-setopt appendhistory
+setopt SHARE_HISTORY
 
 alias amm=amm-31
 alias cat=bat
