@@ -69,6 +69,16 @@ function lg() {
 	fi
 }
 
+function addToPath() {
+    if (( $# == 0)); then
+        echo "Provide a path!"
+    elif [[ $1 == "." ]]; then
+        echo -e "PATH=\"\$PATH:$cwd\"" >> ~/.config/zsh/.zshenv
+    else
+        echo -e "PATH=\"\$PATH:$cwd$@\"" >> ~/.config/zsh/.zshenv
+    fi
+}
+
 echo
 echo
 echo "  $(date)"
