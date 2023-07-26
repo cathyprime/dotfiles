@@ -79,6 +79,11 @@ function addToPath() {
     fi
 }
 
+function f-nvim () {
+    selected=$(fd . -H --exclude=.git | fzf)
+    nvim $selected
+}
+
 echo
 echo
 echo "  $(date)"
