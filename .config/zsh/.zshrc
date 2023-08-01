@@ -1,6 +1,7 @@
 fpath=($HOME/.config/zsh/completions $fpath)
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -U compinit; compinit
+autoload -U compinit;
+compinit -i
 
 eval $(starship init zsh)
 
@@ -31,6 +32,7 @@ setopt autolist
 setopt SHARE_HISTORY
 
 alias amm=amm-31
+alias :q="exit"
 alias cat=bat
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
