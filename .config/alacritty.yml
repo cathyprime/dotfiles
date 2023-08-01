@@ -2,6 +2,8 @@ window:
   opacity: 0.85
   decorations: None
   startup_mode: Maximized
+  padding:
+    y: 7
 
 font:
   normal:
