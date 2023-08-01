@@ -20,6 +20,7 @@
 [alias]
 	ai = "add --interactive"
     c = "commit"
+    co = "checkout"
 	lg = "!f() { git log --graph --decorate --oneline -n ${1:-10}; }; f"
 	please = "push --force-with-lease"
     tree = "log --graph --decorate --oneline --all"
