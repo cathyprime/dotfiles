@@ -38,8 +38,8 @@ case $pkg in
 	;;
 esac
 
-zsh_path=$(grep -o '/.*zsh' /etc/shells)
-fish_path=$(grep -o '/.*fish' /etc/shells)
+zsh_path=$(grep -o '/.*zsh' /etc/shells | head -n 1)
+fish_path=$(grep -o '/.*fish' /etc/shells | head -n 1)
 while true; do
 	echo "choose default shell (Bash/zsh/fish):"
 	echo "all shells will be setup"
