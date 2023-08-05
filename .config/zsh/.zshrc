@@ -81,9 +81,15 @@ function addToPath() {
     fi
 }
 
-function f-nvim () {
+function nvimf () {
     selected=$(fd . -H --exclude=.git | fzf)
     nvim $selected
+}
+
+function unlock-keyring () {
+    read -rsp "Password: " pass
+    export $(echo -n "$pass" | gnome-keyring-daemon --replace --unlock)
+    unset pass
 }
 
 echo
