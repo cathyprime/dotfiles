@@ -9,3 +9,5 @@ home-manager/flake.lock
 .config/zsh/.zcompdump
 .config/zsh/completions
 /.config/zsh/completion/
+bin/squashfs-root
+bin/*.AppImage
