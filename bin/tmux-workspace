@@ -13,6 +13,7 @@ additional_choices=$(
 	cat <<EOC
 $HOME/.config/nvim
 $HOME/Repositories/dotfiles/.config
+$HOME/Repositories/dotfiles/home-manager/
 $HOME/Downloads
 EOC
 )
