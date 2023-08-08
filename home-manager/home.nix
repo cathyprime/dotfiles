@@ -31,6 +31,7 @@
       rustup
       starship
       stow
+      tldr
       tmux
       tree-sitter
       yarn
