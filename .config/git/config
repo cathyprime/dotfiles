@@ -18,7 +18,10 @@
 	name = "Yoolayn"
 
 [alias]
+    r = "rebase"
     ri = "rebase -i"
+    rc = "rebase --continue"
+    ra = "rebase --abort"
 	ai = "add --interactive"
     c = "commit -v"
     co = "checkout"
