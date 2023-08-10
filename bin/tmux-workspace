@@ -12,6 +12,7 @@ paths=(
 additional_choices=$(
 	cat <<EOC
 $HOME/.config/nvim
+$HOME/.config/nvim-test
 $HOME/Repositories/dotfiles/.config
 $HOME/Repositories/dotfiles/home-manager/
 $HOME/Downloads
