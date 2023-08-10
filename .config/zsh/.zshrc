@@ -38,7 +38,6 @@ alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
 alias gs='git status'
 alias la='exa -la --git --group-directories-first'
-alias ll='exa -l --git --group-directories-first'
 alias ls='exa --git --group-directories-first'
 alias man=batman
 alias tree='erd -HId physical -s name -y inverted'
@@ -46,6 +45,25 @@ alias tree='erd -HId physical -s name -y inverted'
 # >>> coursier install directory >>>
 export PATH="$PATH:$USER/.local/share/coursier/bin"
 # <<< coursier install directory <<<
+
+# alias ll='exa -l --git --group-directories-first'
+function ll() {
+    while getopts "h" opt; do
+        case $opt in
+            h)
+                local git_off=true
+                ;;
+            *)
+                ;;
+        esac
+    done
+
+    git rev-parse --is-inside-work-tree > /dev/null 2>&1
+    if [[ $? -eq 0 && "$git_off" != "true" ]]; then
+        git status
+    fi
+    exa -l --git --group-directories-first
+}
 
 function lt() {
     if (( $# > 0 )); then
