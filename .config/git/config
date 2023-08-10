@@ -24,6 +24,7 @@
     ra = "rebase --abort"
 	ai = "add --interactive"
     c = "commit -v"
+    ca = "commit -v -a"
     co = "checkout"
 	lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
 	please = "push --force-with-lease"
