@@ -18,6 +18,7 @@
 	name = "Yoolayn"
 
 [alias]
+    ri = "rebase -i"
 	ai = "add --interactive"
     c = "commit -v"
     co = "checkout"
