@@ -36,7 +36,6 @@
       tree-sitter
       yarn
       yt-dlp
-      zellij
     ];
 
     stateVersion = "23.05";
