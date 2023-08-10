@@ -22,6 +22,6 @@
 	ai = "add --interactive"
     c = "commit -v"
     co = "checkout"
-	lg = "!f() { git log --graph --decorate --oneline -n ${1:-10}; }; f"
+	lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
 	please = "push --force-with-lease"
     tree = "log --graph --decorate --oneline --all"
