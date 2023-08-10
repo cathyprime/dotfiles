@@ -15,7 +15,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 search-history() {
-    selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden)
+    local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden)
     if [[ -n $selected ]]; then
         zle -U "$selected"
     fi
@@ -82,7 +82,7 @@ function addToPath() {
 }
 
 function nvimf () {
-    selected=$(fd . -H --exclude=.git | fzf)
+    local selected=$(fd . -H --exclude=.git | fzf)
     nvim $selected
 }
 
