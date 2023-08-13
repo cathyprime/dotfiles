@@ -27,7 +27,6 @@ set is
 set splitright
 set splitbelow
 set shortmess+=c
-set iskeyword-=_
     " cursor
 set cursorline
 set guicursor = "i-ci-ve:block"
