@@ -25,6 +25,7 @@
     lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
     ls = "branch"
     please = "push --force-with-lease"
+    pr = "pull --rebase"
     ra = "rebase --abort"
     rc = "rebase --continue"
     ri = "rebase -i"
