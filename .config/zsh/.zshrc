@@ -72,11 +72,11 @@ function tw() {
 }
 
 function lg() {
-	if (( $# > 0 )); then
-		lazygit -p "$@"
-	else
-		lazygit
-	fi
+    if (( $# > 0 )); then
+        lazygit -p "$@"
+    else
+        lazygit
+    fi
 }
 
 function addToPath() {
