@@ -29,3 +29,4 @@
 	lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
 	please = "push --force-with-lease"
     tree = "log --graph --decorate --oneline --all"
+    ls = "branch"
