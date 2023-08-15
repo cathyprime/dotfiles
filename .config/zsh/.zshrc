@@ -46,23 +46,13 @@ alias tree='erd -HId physical -s name -y inverted'
 export PATH="$PATH:$USER/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
-# alias ll='exa -l --git --group-directories-first'
+alias lh='exa -l --git --group-directories-first'
 function ll() {
-    while getopts "h" opt; do
-        case $opt in
-            h)
-                local git_off=true
-                ;;
-            *)
-                ;;
-        esac
-    done
-
     git rev-parse --is-inside-work-tree > /dev/null 2>&1
-    if [[ $? -eq 0 && "$git_off" != "true" ]]; then
+    if [[ $? -eq 0 ]]; then
         git status
     fi
-    exa -l --git --group-directories-first
+    exa -l --git --group-directories-first "$@"
 }
 
 function lt() {
