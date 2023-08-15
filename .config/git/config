@@ -31,3 +31,5 @@
     ri = "rebase -i"
     r = "rebase"
     tree = "log --graph --decorate --oneline --all"
+[init]
+	defaultBranch = main
