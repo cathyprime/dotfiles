@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ses=$(tmux ls | fzf)
+ses=$(echo $ses | sed "s/:.*//")
+tmux switch -t $ses
