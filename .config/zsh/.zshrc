@@ -4,7 +4,6 @@ autoload -U compinit;
 compinit -i
 
 # eval $(starship init zsh)
-PROMPT='%F{208}%n%f@%F{160}%m%f %1~ %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%{[0m%} %F{22}$(git branch 2>/dev/null | grep '\''*'\'' | colrm 1 2)%{[0m%} ~> '
 
 HISTFILE=~/.config/zsh/zsh_history
 
@@ -15,12 +14,22 @@ source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 HISTSIZE=10000
 SAVEHIST=10000
 
+get_cwd() {
+    if [[ $(pwd) == $(echo $HOME) ]]; then
+        echo "~"
+    else
+        echo $(basename $(pwd))
+    fi
+}
+
 search-history() {
     local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden)
     if [[ -n $selected ]]; then
         zle -U "$selected"
     fi
 }
+
+PROMPT='%F{208}%n%f@%F{160}%m%f $(get_cwd) %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%{[0m%} %F{22}$(git branch 2>/dev/null | grep '\''*'\'' | colrm 1 2)%{[0m%} ~> '
 
 new-session() {}
 
@@ -30,7 +39,7 @@ bindkey '^R' search-history
 
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
-setopt autocd
+# setopt autocd
 setopt autolist
 setopt SHARE_HISTORY
 
