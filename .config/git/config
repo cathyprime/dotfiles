@@ -1,30 +1,30 @@
 [core]
-	pager = "delta"
-	editor = "nvim"
+    pager = "delta"
+    editor = "nvim"
 
 [delta]
-	light = false
-	line-numbers = true
-	navigate = true
+    light = false
+    line-numbers = true
+    navigate = true
 
 [interactive]
-	diffFilter = "delta --color-only"
+    diffFilter = "delta --color-only"
 
 [pull]
-	rebase = false
+    rebase = false
 
 [user]
-	email = "jaroszynskijulian@gmail.com"
-	name = "Yoolayn"
+    email = "jaroszynskijulian@gmail.com"
+    name = "Yoolayn"
 
 [alias]
-	ai = "add --interactive"
+    ai = "add --interactive"
     ca = "commit -v -a"
     c = "commit -v"
     co = "checkout"
-	lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
+    lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
     ls = "branch"
-	please = "push --force-with-lease"
+    please = "push --force-with-lease"
     ra = "rebase --abort"
     rc = "rebase --continue"
     ri = "rebase -i"
