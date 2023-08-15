@@ -3,7 +3,8 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 autoload -U compinit;
 compinit -i
 
-eval $(starship init zsh)
+# eval $(starship init zsh)
+PROMPT='%F{208}%n%f@%F{160}%m%f %1~ %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%{[0m%} %F{22}$(git branch 2>/dev/null | grep '\''*'\'' | colrm 1 2)%{[0m%} ~> '
 
 HISTFILE=~/.config/zsh/zsh_history
 
@@ -27,6 +28,8 @@ zle -N search-history
 
 bindkey '^R' search-history
 
+setopt PROMPT_SUBST
+setopt PROMPT_PERCENT
 setopt autocd
 setopt autolist
 setopt SHARE_HISTORY
