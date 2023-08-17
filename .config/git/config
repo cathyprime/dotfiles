@@ -31,5 +31,6 @@
     ri = "rebase -i"
     r = "rebase"
     tree = "log --graph --decorate --oneline --all"
+	nuke = !git reset --hard && git clean -fd
 [init]
 	defaultBranch = main
