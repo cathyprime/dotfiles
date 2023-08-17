@@ -58,8 +58,8 @@ alias tree='erd -HId physical -s name -y inverted'
 export PATH="$PATH:$USER/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
-alias lh='exa -l --git --group-directories-first'
-function ll() {
+alias ll='exa -l --git --group-directories-first'
+function llg() {
     git rev-parse --is-inside-work-tree > /dev/null 2>&1
     if [[ $? -eq 0 ]]; then
         git status
