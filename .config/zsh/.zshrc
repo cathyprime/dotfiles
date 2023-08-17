@@ -122,6 +122,6 @@ function unlock-keyring () {
 
 echo
 echo
-echo "  $(date)"
-echo "  $(date +%Y) the year of linux desktop!"
+echo "$(date)"
+echo "$(date +%Y) the year of linux desktop!"
 echo
