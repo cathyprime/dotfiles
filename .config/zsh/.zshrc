@@ -67,6 +67,10 @@ function llg() {
     exa -l --git --group-directories-first "$@"
 }
 
+grep_commit() {
+    git log --oneline --all | fzf | grep -Eo '[a-f0-9]{7}' | tr ' ' '\n' | head | tr -d '\n' | xclip -sel c
+}
+
 function lt() {
     if (( $# > 0 )); then
         exa --tree --long --icons --git --group-directories-first --level="$1" 
