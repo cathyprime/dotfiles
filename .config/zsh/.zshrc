@@ -35,7 +35,7 @@ colors() {
 get_git() {
     local branch=$(git branch 2>/dev/null | grep '*' | sed "s/\* //g")
     if [[ -n "$branch" ]]; then
-        echo "$branch "
+        echo "%F{27}git:(%F{196}$branch%F{27})%f "
     fi
 }
 
