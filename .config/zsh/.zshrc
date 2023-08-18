@@ -22,6 +22,16 @@ get_cwd() {
     fi
 }
 
+colors() {
+    columns=16
+    for code in {0..255}; do
+        printf "\e[38;5;%dm%4d\e[0m " "$code" "$code"
+        if (( (code + 1) % columns == 0 )); then
+            echo
+        fi
+    done
+}
+
 get_git() {
     local branch=$(git branch 2>/dev/null | grep '*' | sed "s/\* //g")
     if [[ -n "$branch" ]]; then
