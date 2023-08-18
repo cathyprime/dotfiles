@@ -15,12 +15,21 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 get_cwd() {
-    if [[ $(pwd) == $(echo $HOME) ]]; then
+    if [[ $(pwd) == $HOME ]]; then
         echo "~"
     else
         echo $(basename $(pwd))
     fi
 }
+
+get_git() {
+    local branch=$(git branch 2>/dev/null | grep '*' | sed "s/\* //g")
+    if [[ -n "$branch" ]]; then
+        echo "$branch "
+    fi
+}
+
+PROMPT='%F{208}%n%f@%F{160}%m%f $(get_cwd) %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f~> '
 
 search-history() {
     local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden)
@@ -28,8 +37,6 @@ search-history() {
         zle -U "$selected"
     fi
 }
-
-PROMPT='%F{208}%n%f@%F{160}%m%f $(get_cwd) %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%{[0m%} %F{22}$(git branch 2>/dev/null | grep '\''*'\'' | colrm 1 2)%{[0m%} ~> '
 
 new-session() {}
 
