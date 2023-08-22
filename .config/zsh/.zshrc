@@ -9,7 +9,7 @@ HISTFILE=~/.config/zsh/zsh_history
 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+# source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 HISTSIZE=10000
 SAVEHIST=10000
