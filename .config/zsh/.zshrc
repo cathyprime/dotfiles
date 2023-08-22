@@ -51,6 +51,9 @@ search-history() {
 zle -N search-history
 
 bindkey '^R' search-history
+bindkey "^[[3~" delete-char
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
 
 setopt PROMPT_SUBST
 setopt PROMPT_PERCENT
