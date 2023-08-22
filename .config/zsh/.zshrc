@@ -48,8 +48,6 @@ search-history() {
     fi
 }
 
-new-session() {}
-
 zle -N search-history
 
 bindkey '^R' search-history
