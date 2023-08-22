@@ -55,3 +55,4 @@ function lt() {
 		exa --tree --level=2 --long --icons --git --group-directories-first
 	fi
 }
+. "$HOME/.cargo/env"
