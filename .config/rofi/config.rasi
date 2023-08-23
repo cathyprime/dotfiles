@@ -150,4 +150,4 @@ modes: "window,drun,run,ssh,calc,filebrowser";
       sorting-method:    "name";
   }
 }
-@theme "/home/yoolayn/.config/rofi/gruvbox-dark-soft.rasi"
+@theme "/home/yoolayna/.config/rofi/gruvbox-dark-soft.rasi"
