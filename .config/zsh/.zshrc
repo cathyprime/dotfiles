@@ -132,12 +132,6 @@ function nvimt () {
     NVIM_APPNAME=nvim-test nvim "$@"
 }
 
-function unlock-keyring () {
-    read -rsp "Password: " pass
-    export $(echo -n "$pass" | gnome-keyring-daemon --replace --unlock)
-    unset pass
-}
-
 echo
 echo
 echo "$(date)"
