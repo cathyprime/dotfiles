@@ -1,6 +1,7 @@
 #!/bin/bash
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
 
 rustup default stable
 cargo install --git https://github.com/MordechaiHadad/bob.git
