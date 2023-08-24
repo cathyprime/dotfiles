@@ -14,6 +14,16 @@ source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 HISTSIZE=10000
 SAVEHIST=10000
 
+check_exit_code() {
+    local exit_code=$?
+
+    if [[ $exit_code -ne 0 ]]; then
+        echo $exit_code
+    else
+        echo ""
+    fi
+}
+
 get_cwd() {
     if [[ $(pwd) == $HOME ]]; then
         echo "~"
@@ -40,6 +50,7 @@ get_git() {
 }
 
 PROMPT='%F{208}%n%f@%F{160}%m%f $(get_cwd) %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f~> '
+RPROMPT='%F{red}$(check_exit_code)%f'
 
 search-history() {
     local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden)
