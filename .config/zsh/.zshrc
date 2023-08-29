@@ -80,7 +80,8 @@ alias clip='xclip -sel c'
 alias gs='git status'
 alias la='exa -la --git --group-directories-first'
 alias ls='exa --git --group-directories-first'
-alias man=batman
+# alias man=batman
+MANPAGER="sh -c 'col -bx | bat -l man -p'"
 alias tree='erd -HId physical -s name -y inverted'
 
 # >>> coursier install directory >>>
