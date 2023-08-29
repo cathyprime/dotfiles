@@ -2,4 +2,4 @@
 
 read selected
 
-tmux neww bash -c "man $selected | bat & while true; do sleep 1; done"
+tmux neww -t 100 bash -c "man $selected & while true; do sleep 1; done"
