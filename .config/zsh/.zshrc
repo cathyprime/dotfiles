@@ -53,7 +53,7 @@ PROMPT='%F{208}%n%f@%F{160}%m%f $(get_cwd) %F{57}$(sudo -n -v >/dev/null 2>&1 &&
 RPROMPT='%F{red}$(check_exit_code)%f'
 
 search-history() {
-    local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden)
+    local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden --height=40%)
     if [[ -n $selected ]]; then
         zle -U "$selected"
     fi
