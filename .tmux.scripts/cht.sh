@@ -13,14 +13,14 @@ else
         rm fzf_output
         exit 1
     fi
-    tmux command-prompt -p "Query:" "run-shell 'tmux setenv CHT_SH_QUERY %1'"
-    query=$(tmux showenv CHT_SH_QUERY | sed "s#.*=\(.*\)#\1#")
-    if tmux showenv CHT_SH_QUERY &> /dev/null; then
-        if grep -qs "$selected" ~/.tmux/cht-languages; then
+    if grep -qs "^$selected$" ~/.tmux/cht-command; then
+        tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected | bat & while [ : ]; do sleep 1; done"
+    else
+        tmux command-prompt -p "Query:" "run-shell 'tmux setenv CHT_SH_QUERY %1'"
+        query=$(tmux showenv CHT_SH_QUERY | sed "s#.*=\(.*\)#\1#")
+        if tmux showenv CHT_SH_QUERY &> /dev/null; then
             query=$(echo $query | tr ' ' '+')
-            tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query & while [ : ]; do sleep 1; done"
-        else
-            tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected~$query | bat & while [ : ]; do sleep 1; done"
+            tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | cat & while [ : ]; do sleep 1; done"
         fi
     fi
     tmux setenv -u CHT_SH_QUERY
