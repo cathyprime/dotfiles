@@ -73,8 +73,6 @@ setopt autolist
 setopt SHARE_HISTORY
 
 alias amm=amm-31
-alias :q="exit"
-alias cat=bat
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
 alias gs='git status'
