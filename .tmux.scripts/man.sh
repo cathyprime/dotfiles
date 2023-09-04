@@ -4,10 +4,13 @@ if tmux list-windows | grep -q 'man'; then
     id=$(tmux list-windows | grep 'man' | sed 's#\([0-9]\+\):.*#\1#')
     tmux select-window -t "$id"
 else
-    tmux command-prompt -p "Enter man query:" "run-shell 'tmux setenv USER_INPUT_MAN_SH %1'"
-    selected=$(tmux showenv USER_INPUT_MAN_SH | sed "s#.*=\(.*\)#\1#")
-    if tmux showenv USER_INPUT_MAN_SH &> /dev/null; then
-        tmux neww -n 'man' -at 4 bash -c "man $selected & sleep infinity"
+    mkfifo query
+    (tmux command-prompt -p "Enter man query:" "run-shell \"echo '%1' > query\"") &
+    exec 3< query
+    read -u 3 selected
+    rm query
+    if [ "$selected" = "" ]; then
+        exit 0
     fi
-    tmux setenv -u USER_INPUT_MAN_SH
+    tmux neww -n 'man' -at 4 bash -c "man '$selected' && tmux kill-window & sleep infinity"
 fi

@@ -8,21 +8,22 @@ else
     (tmux neww "cat ~/.tmux/cht-languages ~/.tmux/cht-command | fzf > fzf_output") &
     exec 3< fzf_output
     read -u 3 selected
-    echo $selected > ~/output
+    rm fzf_output
     if [ "$selected" = "" ]; then
-        rm fzf_output
-        exit 1
+        exit 0
     fi
     if grep -qs "^$selected$" ~/.tmux/cht-command; then
-        tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected | bat & while [ : ]; do sleep 1; done"
+        tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected | bat & sleep infinity"
     else
-        tmux command-prompt -p "Query:" "run-shell 'tmux setenv CHT_SH_QUERY %1'"
-        query=$(tmux showenv CHT_SH_QUERY | sed "s#.*=\(.*\)#\1#")
-        if tmux showenv CHT_SH_QUERY &> /dev/null; then
-            query=$(echo $query | tr ' ' '+')
-            tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | cat & while [ : ]; do sleep 1; done"
+        mkfifo query
+        (tmux command-prompt -p "Query:" "run-shell \"echo '%1' > query\"") &
+        exec 3< query
+        read -u 3 query
+        rm query
+        if [ "$query" = "" ]; then
+            exit 0
         fi
+        query=$(echo $query | tr ' ' '+')
+        tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | bat & sleep infinity"
     fi
-    tmux setenv -u CHT_SH_QUERY
-    rm fzf_output
 fi
