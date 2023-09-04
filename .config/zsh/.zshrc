@@ -111,10 +111,10 @@ function lt() {
 }
 
 function tw() {
-    if (( $# > 0 )); then
-        tmux-workspace $1
-    else
+    if tmux list-sessions 2>&1 | grep -qs "no server running"; then
         tmux-workspace
+    else
+        tmux attach
     fi
 }
 
