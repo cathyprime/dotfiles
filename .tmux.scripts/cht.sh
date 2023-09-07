@@ -13,7 +13,7 @@ else
         exit 0
     fi
     if grep -qs "^$selected$" ~/.tmux/cht-command; then
-        tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected | bat & sleep infinity"
+        tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected | bat -p --paging=always;tmux kill-window"
     else
         mkfifo query
         (tmux command-prompt -p "Query:" "run-shell \"echo '%1' > query\"") &
@@ -24,6 +24,6 @@ else
             exit 0
         fi
         query=$(echo $query | tr ' ' '+')
-        tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | bat & sleep infinity"
+        tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | bat -p --paging=always;tmux kill-window"
     fi
 fi

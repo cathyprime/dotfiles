@@ -13,5 +13,5 @@ else
         exit 0
     fi
     selected=$(echo "$selected" | sed 's#\(.*\)#\1 --help#')
-    tmux neww -at 4 -n "help" bash -c "eval '$selected' | less; tmux kill-window & sleep infinity"
+    tmux neww -at 4 -n "help" bash -c "eval '$selected' | bat -pl bash --paging=always; tmux kill-window"
 fi

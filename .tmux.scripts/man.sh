@@ -12,5 +12,5 @@ else
     if [ "$selected" = "" ]; then
         exit 0
     fi
-    tmux neww -n 'man' -at 4 bash -c "man '$selected' && tmux kill-window & sleep infinity"
+    tmux neww -n 'man' -at 4 bash -c "/usr/bin/man '$selected' | col -b | bat -pl man --paging=always && tmux kill-window & sleep infinity"
 fi
