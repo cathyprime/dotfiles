@@ -16,6 +16,7 @@ else
         if tmux list-panes | grep -qsE "[0-9]{2,4}x$pane_lines"; then
             paneid=$(tmux list-panes | grep -E "[0-9]{2,4}x$pane_lines" | sed "s#.*\(%[0-9]\+\).*#\1#")
             target_win=$(tmux list-windows | sed "s#\(.*\):.*#\1#" | sort -nr | head -n1 | sed "s#\(.*\)#\1+1#" | bc)
+            target_win=$(echo "$target_win 4" | tr ' ' '\n' | sort -nr | head -n 1)
             tmux break-pane -ds "$paneid" -n "term_${active_window}_pane" -t "$target_win"
         else
             tmux split-window -l "$size"
