@@ -81,7 +81,7 @@ alias la='exa -la --git --group-directories-first'
 alias ls='exa --git --group-directories-first'
 alias qmkcd='cd ~/Repositories/qmk_firmware/'
 # alias man=batman
-MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="bat --plain"
 alias tree='erd -HId physical -s name -y inverted'
 
 # >>> coursier install directory >>>
@@ -89,6 +89,11 @@ export PATH="$PATH:$USER/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
 alias ll='exa -l --git --group-directories-first'
+
+function man() {
+    /usr/bin/man "$@" | col -b | bat -pl man
+}
+
 function llg() {
     git rev-parse --is-inside-work-tree > /dev/null 2>&1
     if [[ $? -eq 0 ]]; then
