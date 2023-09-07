@@ -55,6 +55,7 @@ RPROMPT='%F{red}$(check_exit_code)%f'
 search-history() {
     local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden --height=40%)
     if [[ -n $selected ]]; then
+        zle reset-prompt
         zle -U "$selected"
     fi
 }
