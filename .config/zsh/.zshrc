@@ -110,7 +110,7 @@ function lt() {
 }
 
 function tw() {
-    if tmux list-sessions 2>&1 | grep -qs "no server running"; then
+    if tmux list-sessions 2>&1 | grep -Eqs "(no server running|no sessions|error connecting)"; then
         tmux-workspace
     else
         tmux attach
