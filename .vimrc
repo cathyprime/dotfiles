@@ -73,6 +73,7 @@ let g:gruvbox_transparent_bg = 1
 colorscheme gruvbox
 
 " autocommands
+autocmd VimEnter * hi Normal ctermbg=none
 augroup LoadViewOnVimrc
     au!
     au BufReadPost ~/.vimrc silent! loadview
