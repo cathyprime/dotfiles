@@ -77,8 +77,8 @@ alias amm=amm-31
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
 alias gs='git status'
-alias la='exa -la --git --group-directories-first'
-alias ls='exa --git --group-directories-first'
+alias la='eza -la --git --group-directories-first'
+alias ls='eza --git --group-directories-first'
 alias qmkcd='cd ~/Repositories/qmk_firmware/'
 # alias man=batman
 # export MANPAGER="bat --plain"
@@ -88,7 +88,7 @@ alias tree='erd -HId physical -s name -y inverted'
 export PATH="$PATH:$USER/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
-alias ll='exa -l --git --group-directories-first'
+alias ll='eza -l --git --group-directories-first'
 
 function man() {
     /usr/bin/man "$@" | col -b | bat -pl man
@@ -99,7 +99,7 @@ function llg() {
     if [[ $? -eq 0 ]]; then
         git status
     fi
-    exa -l --git --group-directories-first "$@"
+    eza -l --git --group-directories-first "$@"
 }
 
 grep_commit() {
@@ -108,9 +108,9 @@ grep_commit() {
 
 function lt() {
     if (( $# > 0 )); then
-        exa --tree --long --icons --git --group-directories-first --level="$1" 
+        eza --tree --long --icons --git --group-directories-first --level="$1" 
     else
-        exa --tree --level=2 --long --icons --git --group-directories-first
+        eza --tree --level=2 --long --icons --git --group-directories-first
     fi
 }
 
