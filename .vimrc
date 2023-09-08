@@ -62,7 +62,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'cohama/lexima.vim'
+Plug 'rstacruz/vim-closer'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
