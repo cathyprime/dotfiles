@@ -6,6 +6,7 @@ paths=(
 	~/Repositories/neovim-plugins
 	~/Repositories/dotfiles/.config
 	~/Repositories/school/
+    ~/exercism/
 )
 
 # here are some folders by itself
