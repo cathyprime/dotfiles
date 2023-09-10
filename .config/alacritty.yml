@@ -3,7 +3,7 @@ window:
   decorations: None
   startup_mode: Maximized
   padding:
-    y: 0
+    x: 4
 
 font:
   normal:
