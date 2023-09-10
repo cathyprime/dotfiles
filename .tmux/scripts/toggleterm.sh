@@ -22,9 +22,9 @@ else
             target_win=$(echo "$target_win 4" | tr ' ' '\n' | sort -nr | head -n 1)
             tmux break-pane -ds "$paneid" -n "term_${active_window}_pane" -t "$target_win"
         else
-            tmux split-window -l "$size" -t $(get_main_pane)
+            tmux split-window -l "$size" -t $(get_main_pane) -c "#{pane_current_path}"
         fi
     else
-        tmux split-window -l "$size" -t $(get_main_pane)
+        tmux split-window -l "$size" -t $(get_main_pane) -c "#{pane_current_path}"
     fi
 fi
