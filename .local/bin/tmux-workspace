@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# add paths where to search for projects here
+# NOTE: paths where to search for projects
 paths=(
     ~/Repositories
     ~/Repositories/neovim-plugins
@@ -9,7 +9,7 @@ paths=(
     ~/exercism/
 )
 
-# here are some folders by itself
+# NOTE: singular directories to be added after the search
 additional_choices=$(
     cat <<EOC
 $HOME/.config/nvim
@@ -23,7 +23,13 @@ EOC
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-	selected=$(fd . --exclude=misc --exact-depth=1 -t d -H ${paths[*]} | cat - <(echo -e "$additional_choices") | fzf)
+    selected=$(fd . --exact-depth=1 -t d -H ${paths[*]} \
+        --exclude=misc                                  \
+        --exclude=nerd-fonts                            \
+    | cat - <(echo -e "$additional_choices")            \
+    | grep -vE "^$HOME/Repositories/school/$"           \
+    | grep -vE "^$HOME/Repositories/neovim-plugins/$"   \
+    | fzf)
     echo $selected
 fi
 
