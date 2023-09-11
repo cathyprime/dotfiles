@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
+get_input () {
+    temp_file=$(mktemp)
+    (tmux command-prompt -p "$@" "run-shell \"echo '%1' > $temp_file\"") &
+    wait
+    selected=$(cat "$temp_file")
+    rm "$temp_file"
+    echo "$selected"
+}
+
 if tmux list-windows | grep -q 'help'; then
     id=$(tmux list-windows | grep 'help' | sed 's#\([0-9]\+\):.*#\1#')
     tmux select-window -t "$id"
 else
-    mkfifo output_help
-    (tmux command-prompt -p "enter query for --help command:" "run-shell \"echo '%1' > output_help\"") &
-    exec 3< output_help
-    read -u 3 selected
-    rm output_help
+    selected=$(get_input "enter query for --help command:")
     if [ "$selected" = "" ]; then
         exit 0
     fi
