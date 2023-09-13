@@ -102,8 +102,16 @@ function llg() {
     eza -l --git --group-directories-first "$@"
 }
 
-grep_commit() {
-    git log --oneline --all | fzf | grep -Eo '[a-f0-9]{7}' | tr ' ' '\n' | head | tr -d '\n' | xclip -sel c
+function git-grep() {
+    git log --oneline --all | fzf --preview 'git show --color=always {+1}' | grep -Eo '[a-f0-9]{7}' | tr ' ' '\n' | head | tr -d '\n' | xclip -sel c
+}
+
+function start-gentoo() {
+( qemu-system-x86_64 -m 8G -enable-kvm \
+                     -cdrom ~/Downloads/install-amd64-minimal-20230903T170202Z.iso \
+                     -drive file=/home/yoolayna/qemu/gentoo.cow,format=qcow2 \
+                     -boot order=d) &
+                   disown
 }
 
 function lt() {
