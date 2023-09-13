@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+pager="less"
+if command -v bat >/dev/null 2>&1; then
+    pager="col -b | bat -pl man --paging=always"
+fi
+
 get_input () {
     temp_file=$(mktemp)
     (tmux command-prompt -p "$@" "run-shell \"echo '%1' > $temp_file\"") &
@@ -24,6 +29,6 @@ else
         if [ "$selected" = "" ]; then
             exit 0
         fi
-        tmux neww -n 'man' -at 4 bash -c "/usr/bin/man '$selected' | col -b | bat -pl man --paging=always && tmux kill-window & sleep infinity"
+        tmux neww -n 'man' -at 4 bash -c "/usr/bin/man '$selected' | $pager && tmux kill-window & sleep infinity"
     fi
 fi
