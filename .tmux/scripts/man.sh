@@ -14,8 +14,16 @@ if tmux list-windows | grep -q 'man'; then
     tmux select-window -t "$id"
 else
     selected=$(get_input "Enter man query:")
-    if [ "$selected" = "" ]; then
-        exit 0
+    if command -v batman >/dev/null 2>&1; then
+        if [ "$selected" = "" ]; then
+            tmux neww -n 'man' -at 4 bash -c "batman"
+        else
+            tmux neww -n 'man' -at 4 bash -c "batman '$selected'"
+        fi
+    else
+        if [ "$selected" = "" ]; then
+            exit 0
+        fi
+        tmux neww -n 'man' -at 4 bash -c "/usr/bin/man '$selected' | col -b | bat -pl man --paging=always && tmux kill-window & sleep infinity"
     fi
-    tmux neww -n 'man' -at 4 bash -c "/usr/bin/man '$selected' | col -b | bat -pl man --paging=always && tmux kill-window & sleep infinity"
 fi
