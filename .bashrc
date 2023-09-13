@@ -22,11 +22,11 @@ alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
 alias find=fd
 alias gs='git status'
-alias la='exa -la --git --group-directories-first'
-alias ll='exa -l --git --group-directories-first'
-alias ls='exa --git --group-directories-first'
-alias lt4='exa --tree --level=4 --long --icons --git --group-directories-first'
-alias lt='exa --tree --level=2 --long --icons --git --group-directories-first'
+alias la='eza -la --git --group-directories-first'
+alias ll='eza -l --git --group-directories-first'
+alias ls='eza --git --group-directories-first'
+alias lt4='eza --tree --level=4 --long --icons --git --group-directories-first'
+alias lt='eza --tree --level=2 --long --icons --git --group-directories-first'
 alias man=batman
 alias new-nvim='begin; set -lx NVIM_APPNAME new-nvim; nvim; end;'
 alias tree='erd -HId physical -s name -y inverted'
@@ -50,9 +50,9 @@ function lg() {
 
 function lt() {
 	if [ $1 -gt 0 ]; then
-		exa --tree --level=$1 --long --icons --git --group-directories-first
+		eza --tree --level=$1 --long --icons --git --group-directories-first
 	else
-		exa --tree --level=2 --long --icons --git --group-directories-first
+		eza --tree --level=2 --long --icons --git --group-directories-first
 	fi
 }
 . "$HOME/.cargo/env"
