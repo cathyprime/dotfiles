@@ -103,7 +103,7 @@ function llg() {
 }
 
 function git-grep() {
-    git log --oneline --all | fzf --preview 'git show --color=always {+1}' | grep -Eo '[a-f0-9]{7}' | tr ' ' '\n' | head | tr -d '\n' | xclip -sel c
+    git log --oneline --all | fzf --preview 'git show --color=always {+1}' | sed 's#\([0-9a-f]\{7\}\) .*#\1#' | tr -d '\n' | xclip -sel c
 }
 
 function start-gentoo() {
