@@ -67,11 +67,10 @@ bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
-setopt PROMPT_SUBST
-setopt PROMPT_PERCENT
-# setopt autocd
+setopt promptsubst
+setopt promptpercent
 setopt autolist
-setopt SHARE_HISTORY
+setopt sharehistory
 
 alias amm=amm-31
 alias clean-nvim='rm -rf ~/.local/share/nvim'
