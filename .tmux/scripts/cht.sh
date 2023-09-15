@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+pager="less -R && tmux kill-window & sleep infinity"
+
+if command -v bat >/dev/null 2>&1; then
+    pager="bat -p --paging=always; tmux kill-window"
+fi
+
 get_input () {
     temp_file=$(mktemp)
     (tmux command-prompt -p "$@" "run-shell \"echo '%1' > $temp_file\"") &
@@ -23,13 +29,13 @@ else
         exit 0
     fi
     if grep -qs "^$selected$" ~/.tmux/cht-command; then
-        tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected | bat -p --paging=always;tmux kill-window"
+        tmux neww -at 4 -n "cht.sh" bash -c "curl -s cht.sh/$selected | $pager"
     else
         query=$(get_input "Query:")
         if [ "$query" = "" ]; then
             exit 0
         fi
         query=$(echo $query | tr ' ' '+')
-        tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | bat -p --paging=always;tmux kill-window"
+        tmux neww -at 4 -n "cht.sh" bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query | $pager"
     fi
 fi

@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+pager="less"
+
+if command -v bat >/dev/null 2>&1; then
+    pager="bat -pl bash --paging=always"
+fi
 
 get_input () {
     temp_file=$(mktemp)
@@ -18,5 +23,5 @@ else
         exit 0
     fi
     selected=$(echo "$selected" | sed 's#\(.*\)#\1 --help#')
-    tmux neww -at 4 -n "help" bash -c "eval '$selected' | bat -pl bash --paging=always; tmux kill-window"
+    tmux neww -at 4 -n "help" bash -c "eval '$selected' | $pager && tmux kill-window"
 fi
