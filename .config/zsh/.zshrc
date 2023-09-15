@@ -69,6 +69,7 @@ bindkey "^[[4~" end-of-line
 
 setopt promptsubst
 setopt promptpercent
+setopt autopushd
 setopt autolist
 setopt sharehistory
 
@@ -107,7 +108,7 @@ function git-grep() {
 
 function start-gentoo() {
 ( qemu-system-x86_64 -m 8G -enable-kvm \
-                     -cdrom ~/Downloads/install-amd64-minimal-20230903T170202Z.iso \
+                     -cdrom ~/Downloads/gentoo-amd64-minimal-20230903T170202Z.iso \
                      -drive file=/home/yoolayna/qemu/gentoo.cow,format=qcow2 \
                      -boot order=d) &
                    disown
