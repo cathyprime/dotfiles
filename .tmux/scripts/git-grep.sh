@@ -9,5 +9,4 @@ mkfifo /tmp/git_clipboard
 exec 3< /tmp/git_clipboard
 read -ru 3 hash
 tmux set-buffer "$hash"
-tmux kill-window
 rm /tmp/git_clipboard
