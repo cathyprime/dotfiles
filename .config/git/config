@@ -18,6 +18,7 @@
     name = "Yoolayn"
 
 [alias]
+    aliases = "!git config --get-regexp ^alias | sed 's/alias.//' | sed 's/ /@/' | column -t -s '@'"
     ai = "add --interactive"
     ca = "commit -v -a"
     c = "commit -v"
