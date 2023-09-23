@@ -29,7 +29,7 @@ else
     | cat - <(echo -e "$additional_choices")            \
     | grep -vE "^$HOME/Repositories/school/$"           \
     | grep -vE "^$HOME/Repositories/neovim-plugins/$"   \
-    | fzf --preview-window=right,30% --preview 'echo {} && eza -l --git --group-directories-first --color=always {}')
+    | fzf --preview-window=right,30% --preview 'echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always {}')
 fi
 
 if [[ -z $selected ]]; then
