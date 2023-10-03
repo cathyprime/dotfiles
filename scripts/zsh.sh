@@ -9,4 +9,5 @@ git clone https://github.com/nix-community/nix-zsh-completions
 wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 popd
 popd
-sudo echo 'ZDOTDIR=$HOME/.config/zsh' >> /etc/zsh/zshenv
+echo "paste this into /etc/zsh/zshenv"
+echo "ZDOTDIR=$HOME/.config/zsh"

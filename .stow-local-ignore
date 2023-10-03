@@ -1,7 +1,7 @@
 \.git
 home-manager
 systemd
-*.pacman
+.*\.pacman
 scripts
 ^/.*\.sh
 ^\.gitignore$
