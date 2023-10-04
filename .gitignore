@@ -11,3 +11,6 @@ home-manager/flake.lock
 /.config/zsh/completion/
 bin/squashfs-root
 bin/*.AppImage
+.vim/plugged
+.vim/.netrwhist
+.vim/tags
