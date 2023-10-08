@@ -7,6 +7,7 @@ compinit -i
 
 HISTFILE=~/.config/zsh/zsh_history
 
+source ~/.cargo/env
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
@@ -84,10 +85,6 @@ alias qmkcd='cd ~/Repositories/qmk_firmware/'
 # export MANPAGER="bat --plain"
 alias tree='erd -HId physical -s name -y inverted'
 
-# >>> coursier install directory >>>
-export PATH="$PATH:$USER/.local/share/coursier/bin"
-# <<< coursier install directory <<<
-
 alias ll='eza -l --git --group-directories-first'
 
 function man() {
@@ -104,6 +101,10 @@ function llg() {
 
 function git-grep() {
     git log --oneline --all | fzf --preview 'git show --color=always {+1}' | sed 's#\([0-9a-f]\{7\}\) .*#\1#' | tr -d '\n' | xclip -sel c
+}
+
+function spath() {
+	echo $PATH | sed 's/:/\n/g'
 }
 
 function start-gentoo() {
@@ -162,3 +163,4 @@ echo
 echo "$(date)"
 echo "$(date +%Y) the year of linux desktop!"
 echo
+export PATH=$(echo -n $PATH | tr ':' '\n' | sort -u | tr '\n' ':')
