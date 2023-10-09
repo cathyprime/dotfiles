@@ -43,20 +43,29 @@ tmux_running=$(pgrep tmux)
 
 if [[ "$selected" =~ .*\.git\/ ]]; then
 	oldselected=$selected
-	selected=$(ls "$selected" \
-		| grep -v branches	  \
-		| grep -v hooks		  \
-		| grep -v info		  \
-		| grep -v logs		  \
-		| grep -v objects	  \
-		| grep -v refs		  \
-		| grep -v worktrees   \
-		| grep -v config	  \
-		| grep -v description \
-		| grep -v HEAD		  \
-		| grep -v packed-refs \
-		| fzf --preview-window=right,30% --preview "echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always $selected/{}" \
-		| paste -d "" <(echo "$selected") -)
+
+	if git -C "$selected" rev-parse > /dev/null 2>&1; then
+		selected=$(git -C "$selected" worktree list   \
+			| grep -v bare             \
+			| sed 's#.*\[\(.*\)\]#\1#' \
+			| fzf --preview-window=right,30% --preview "echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always $selected/{}" \
+			| paste -d "" <(echo "$selected") -)
+	else
+		selected=$(ls "$selected" \
+			| grep -v branches	  \
+			| grep -v hooks		  \
+			| grep -v info		  \
+			| grep -v logs		  \
+			| grep -v objects	  \
+			| grep -v refs		  \
+			| grep -v worktrees   \
+			| grep -v config	  \
+			| grep -v description \
+			| grep -v HEAD		  \
+			| grep -v packed-refs \
+			| fzf --preview-window=right,30% --preview "echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always $selected/{}" \
+			| paste -d "" <(echo "$selected") -)
+	fi
 
 	if [[ $oldselected != "$selected" ]]; then
 		selected_name=$(echo "$selected_name" | cut -c1-10 | paste -d "/" - <(basename "$selected"))
