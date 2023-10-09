@@ -20,8 +20,10 @@ $HOME/Downloads
 EOC
 )
 
-if [[ $# -eq 1 ]]; then
+if [[ $# -eq 1 && $1 != "force" ]]; then
     selected=$1
+elif  [[ "$(pwd)" =~ \.git\/ && $1 != "force" ]]; then
+	selected=$(pwd | sed 's#\(.*\.git\/\).*#\1#')
 else
     selected=$(fd . --exact-depth=1 -t d -H "${paths[@]}" \
         --exclude=misc                                    \
