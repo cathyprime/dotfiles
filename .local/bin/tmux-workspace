@@ -2,16 +2,16 @@
 
 # NOTE: paths where to search for projects
 paths=(
-    ~/Repositories
-    ~/Repositories/neovim-plugins
-    ~/Repositories/dotfiles/.config
-    ~/Repositories/school/
-    ~/exercism/
+	~/Repositories
+	~/Repositories/neovim-plugins
+	~/Repositories/dotfiles/.config
+	~/Repositories/school/
+	~/exercism/
 )
 
 # NOTE: singular directories to be added after the search
 additional_choices=$(
-    cat <<EOC
+	cat <<EOC
 $HOME/.config/nvim
 $HOME/.config/nvim-test
 $HOME/Repositories/dotfiles/.config
@@ -21,21 +21,21 @@ EOC
 )
 
 if [[ $# -eq 1 && $1 != "force" ]]; then
-    selected=$1
+	selected=$1
 elif  [[ "$(pwd)" =~ \.git\/ && $1 != "force" ]]; then
 	selected=$(pwd | sed 's#\(.*\.git\/\).*#\1#')
 else
-    selected=$(fd . --exact-depth=1 -t d -H "${paths[@]}" \
-        --exclude=misc                                    \
-        --exclude=nerd-fonts                              \
-    | cat - <(echo -e "$additional_choices")              \
-    | grep -vE "^$HOME/Repositories/school/$"             \
-    | grep -vE "^$HOME/Repositories/neovim-plugins/$"     \
-    | fzf --preview-window=right,30% --preview 'echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always {}')
+	selected=$(fd . --exact-depth=1 -t d -H "${paths[@]}" \
+		--exclude=misc									  \
+		--exclude=nerd-fonts							  \
+	| cat - <(echo -e "$additional_choices")			  \
+	| grep -vE "^$HOME/Repositories/school/$"			  \
+	| grep -vE "^$HOME/Repositories/neovim-plugins/$"	  \
+	| fzf --preview-window=right,30% --preview 'echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always {}')
 fi
 
 if [[ -z $selected ]]; then
-    exit 0
+	exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
@@ -44,16 +44,17 @@ tmux_running=$(pgrep tmux)
 if [[ "$selected" =~ .*\.git\/ ]]; then
 	oldselected=$selected
 	selected=$(ls "$selected" \
-        | grep -v branches    \
-        | grep -v hooks       \
-        | grep -v info        \
-        | grep -v objects     \
-        | grep -v refs        \
-        | grep -v worktrees   \
-        | grep -v config      \
-        | grep -v description \
-        | grep -v HEAD        \
-        | grep -v packed-refs \
+		| grep -v branches	  \
+		| grep -v hooks		  \
+		| grep -v info		  \
+		| grep -v logs		  \
+		| grep -v objects	  \
+		| grep -v refs		  \
+		| grep -v worktrees   \
+		| grep -v config	  \
+		| grep -v description \
+		| grep -v HEAD		  \
+		| grep -v packed-refs \
 		| fzf --preview-window=right,30% --preview "echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always $selected/{}" \
 		| paste -d "" <(echo "$selected") -)
 
@@ -63,12 +64,12 @@ if [[ "$selected" =~ .*\.git\/ ]]; then
 fi
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s "$selected_name" -c "$selected"
-    exit 0
+	tmux new-session -s "$selected_name" -c "$selected"
+	exit 0
 fi
 
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
-    tmux new-session -ds "$selected_name" -c "$selected"
+	tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
 tmux switch-client -t "$selected_name"
