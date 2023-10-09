@@ -39,6 +39,27 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
+if [[ "$selected" =~ .*\.git\/ ]]; then
+	oldselected=$selected
+	selected=$(ls $selected   \
+        | grep -v branches    \
+        | grep -v hooks       \
+        | grep -v info        \
+        | grep -v objects     \
+        | grep -v refs        \
+        | grep -v worktrees   \
+        | grep -v config      \
+        | grep -v description \
+        | grep -v HEAD        \
+        | grep -v packed-refs \
+		| fzf --preview-window=right,30% --preview "echo {} && eza -l --git --group-directories-first --no-user --no-time --color=always $selected/{}" \
+		| paste -d "" <(echo $selected) -)
+
+	if [[ $oldselected != $selected ]]; then
+		selected_name=$(echo $selected_name | cut -c1-10 | paste -d "/" - <(basename "$selected"))
+	fi
+fi
+
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux new-session -s $selected_name -c $selected
     exit 0
