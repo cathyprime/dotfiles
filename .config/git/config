@@ -1,39 +1,40 @@
 [core]
-    pager = "delta"
-    editor = "nvim"
+	pager = "delta"
+	editor = "nvim"
 
 [delta]
-    light = false
-    line-numbers = true
-    navigate = true
+	light = false
+	line-numbers = true
+	navigate = true
 
 [interactive]
-    diffFilter = "delta --color-only"
+	diffFilter = "delta --color-only"
 
 [pull]
-    rebase = false
+	rebase = false
 
 [user]
-    email = "jaroszynskijulian@gmail.com"
-    name = "Yoolayn"
+	email = "jaroszynskijulian@gmail.com"
+	name = "Yoolayn"
 
 [alias]
-    aliases = "!git config --get-regexp ^alias | sed 's/alias.//' | sed 's/ /@/' | column -t -s '@'"
-    ai = "add --interactive"
-    ca = "commit -v -a"
-    c = "commit -v"
-    co = "checkout"
-    lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
-    ls = "branch"
-    nuke = !git reset --hard && git clean -fd
-    please = "push --force-with-lease"
-    pr = "pull --rebase"
-    ra = "rebase --abort"
-    rc = "rebase --continue"
-    ri = "rebase -i"
-    r = "rebase"
-    sw = switch
-    tree = "log --graph --decorate --oneline --all"
+	aliases = "!git config --get-regexp ^alias | sed 's/alias.//' | sed 's/ /@/' | column -t -s '@'"
+	ai = "add --interactive"
+	ca = "commit -v -a"
+	c = "commit -v"
+	co = "checkout"
+	lg = "!f() { git log --graph --decorate -n ${1:-10}; }; f"
+	ls = "branch"
+	lsd = "branch -d"
+	nuke = !git reset --hard && git clean -fd
+	please = "push --force-with-lease"
+	pr = "pull --rebase"
+	ra = "rebase --abort"
+	rc = "rebase --continue"
+	ri = "rebase -i"
+	r = "rebase"
+	sw = switch
+	tree = "log --graph --decorate --oneline --all"
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
