@@ -35,10 +35,8 @@ if [[ "Local" == "$type" ]]; then
 		stash=$(git stash list | grep "tmux-checkout-autostash-${branch}" | sed 's#\([^:]*\).*#\1#')
 		git stash pop "$stash" >/dev/null 2>&1
 	fi
-	tmux send-keys "git status"
-	tmux send-keys Enter
 else
 	git checkout -b "$branch" >/dev/null 2>&1
-	tmux send-keys "git status"
-	tmux send-keys Enter
 fi
+tmux send-keys "git status"
+tmux send-keys Enter
