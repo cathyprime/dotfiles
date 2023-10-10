@@ -18,6 +18,10 @@ exec 3< /tmp/tmux_checkout_temp
 read -ru 3 selected
 rm -f /tmp/tmux_checkout_temp
 
+if [[ "$selected" == "" ]]; then
+	exit 0
+fi
+
 type=$(echo "$selected" | cut -d ' ' -f1 | sed 's#\[\(.*\)\]:.*#\1#')
 branch=$(echo "$selected" | cut -d ' ' -f2)
 
