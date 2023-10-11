@@ -24,7 +24,6 @@ fi
 
 type=$(echo "$selected" | cut -d ' ' -f1 | sed 's#\[\(.*\)\]:.*#\1#')
 branch=$(echo "$selected" | cut -d ' ' -f2)
-
 curr_branch=$(git branch | grep "\* " | sed 's#..##')
 
 git stash -aum "tmux-checkout-autostash-${curr_branch}" >/dev/null 2>&1
@@ -36,7 +35,6 @@ if [[ "Local" == "$type" ]]; then
 		git stash pop "$stash" >/dev/null 2>&1
 	fi
 else
-	git checkout -b "$branch" >/dev/null 2>&1
+	remote=$(git branch -r | grep "$branch" | grep "/" | sed 's/^  \([^/]*\)\/.*/\1/')
+	git checkout -b "$branch" "$remote/$branch" >/dev/null 2>&1
 fi
-tmux send-keys "git status"
-tmux send-keys Enter
