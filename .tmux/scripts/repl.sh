@@ -9,7 +9,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 if ! tmux showenv | grep -qs REPL; then
-	repl_id=$(tmux splitw -h -PF '#{pane_id}' "$1")
+	repl_id=$(tmux splitw -hl 40% -PF '#{pane_id}' "$1")
 	tmux setenv "REPL_${repl}" "$repl_id"
 else
 	repl_id=$(tmux showenv "REPL_${repl}" | sed "s/.*=//")
