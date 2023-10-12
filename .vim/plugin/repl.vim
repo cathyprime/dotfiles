@@ -1,21 +1,24 @@
-function! g:StartREPL(filetype)
-	if a:filetype == "vim"
-		let l:temp_file = tempname() .. ".vim"
-	elseif a:filetype == "lua"
-		let l:temp_file = tempname() .. ".lua"
-	else
-		echo "Neovim can only source vim or lua files!"
-		return
-	endif
-	exec 'split ' .. l:temp_file
-	nmap <silent> <buffer> <c-s> :<c-u>sav! ~/.config/nvim/repl_output<cr>
-	augroup TempREPL
-		au!
-		au BufWritePost <buffer> source %
-	augroup END
-endfunction
+command -nargs=+ -range SendToRepl call repl#ToRepl(<line1>, <line2>, <q-args>)
+command -nargs=1 StartREPL call repl#StartREPL(<q-args>)
 
-command -nargs=1 StartREPL call StartREPL(<q-args>)
+nnoremap <silent> <Plug>(VimREPL) :call repl#StartREPL("vim")<cr>
+nnoremap <silent> <Plug>(LuaREPL) :call repl#StartREPL("lua")<cr>
 
-nnoremap <silent> <c-w>r :<c-u>StartREPL vim<cr>
-nnoremap <silent> <c-w>R :<c-u>StartREPL lua<cr>
+" python
+nnoremap <silent> <Plug>(Python_nrepl) :<c-u>call repl#ToReplMap("python", "n")<cr>
+vnoremap <silent> <Plug>(Python_vrepl) :<c-u>call repl#ToReplMap("python", "v")<cr>
+" scala
+nnoremap <silent> <Plug>(Scala_nrepl) :<c-u>call repl#ToReplMap("amm-31", "n")<cr>
+vnoremap <silent> <Plug>(Scala_vrepl) :<c-u>call repl#ToReplMap("amm-31", "v")<cr>
+" rust
+nnoremap <silent> <Plug>(Rust_nrepl) :<c-u>call repl#ToReplMap("irust", "n")<cr>
+vnoremap <silent> <Plug>(Rust_vrepl) :<c-u>call repl#ToReplMap("irust", "v")<cr>
+" R
+nnoremap <silent> <Plug>(R_nrepl) :<c-u>call repl#ToReplMap("R", "n")<cr>
+vnoremap <silent> <Plug>(R_vrepl) :<c-u>call repl#ToReplMap("R", "v")<cr>
+" javascript
+nnoremap <silent> <Plug>(Js_nrepl) :<c-u>call repl#ToReplMap("node", "n")<cr>
+vnoremap <silent> <Plug>(Js_vrepl) :<c-u>call repl#ToReplMap("node", "v")<cr>
+" typescript
+nnoremap <silent> <Plug>(Ts_nrepl) :<c-u>call repl#ToReplMap("ts-node", "n")<cr>
+vnoremap <silent> <Plug>(Ts_vrepl) :<c-u>call repl#ToReplMap("ts-node", "v")<cr>

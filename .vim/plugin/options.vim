@@ -61,12 +61,12 @@ set shortmess+=c
 " mode
 set showmode
 
-" global status line
-set laststatus=3
+" status line
+set laststatus=2
 
 " undo
 set undofile
-set undodir=$HOME/.config/nvim/undo
+set undodir=$HOME/.vim/undo
 
 " Command-line completion mode
 set wildmode=longest:full,full
