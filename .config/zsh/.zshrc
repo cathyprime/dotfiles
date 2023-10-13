@@ -70,7 +70,7 @@ bindkey "^[[4~" end-of-line
 
 setopt promptsubst
 setopt promptpercent
-setopt autopushd
+# setopt autopushd
 setopt autolist
 setopt sharehistory
 
@@ -129,6 +129,12 @@ function tw() {
     else
         tmux attach
     fi
+}
+
+function sync_task() {
+	pushd ~/Documents/task/
+	make sync
+	popd
 }
 
 function lg() {
