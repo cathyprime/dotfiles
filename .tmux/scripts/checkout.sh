@@ -4,6 +4,14 @@ if ! git rev-parse > /dev/null 2>&1 ; then
 	exit 0
 fi
 
+if [[ "$(pwd)" =~ \.git\/ ]]; then
+	local paths=$(git worktree list | grep -v bare | sed 's#\s.*##')
+	path=$(echo "$paths" | xargs -I{} basename {} | fzf)
+	path=$(echo "$paths" | grep "$path")
+	tmux-workspace "$path"
+	exit 0
+fi
+
 locals=$(git ls | sed 's/..//')
 remotes=$(git ls -r | grep -v HEAD | sed 's/[[:space:]]*//' | sed 's/\(.*\)\///')
 remotes=$(echo "$remotes" | grep -vF -f <(echo "$locals"))
