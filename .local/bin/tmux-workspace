@@ -22,7 +22,7 @@ EOC
 
 if [[ $# -eq 1 && $1 != "force" ]]; then
 	selected=$1
-elif  [[ "$(pwd)" =~ \.git\/$ && $1 != "force" ]]; then
+elif  [[ "$(pwd)" =~ \.git\/ && $1 != "force" ]]; then
 	selected=$(pwd | sed 's#\(.*\.git\/\).*#\1#')
 else
 	selected=$(fd . --exact-depth=1 -t d -H "${paths[@]}" \
