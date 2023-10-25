@@ -107,6 +107,22 @@ function spath() {
 	echo $PATH | sed 's/:/\n/g'
 }
 
+function docker() {
+	case "$1" in
+		"") command docker ;;
+		"lazy") lazydocker ;;
+		*) command docker "$@" ;;
+	esac
+}
+
+function git() {
+	case "$1" in
+		"") command git ;;
+		"lazy") lazygit ;;
+		*) command git "$@" ;;
+	esac
+}
+
 function start-gentoo() {
 ( qemu-system-x86_64 -m 8G -enable-kvm \
 					 -cdrom ~/Downloads/gentoo-amd64-minimal-20230903T170202Z.iso \
