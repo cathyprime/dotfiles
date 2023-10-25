@@ -7,7 +7,6 @@ PS1='\[\e[38;5;57m\]\u\[\e[0m\]@\[\e[38;5;196;3m\]\h\[\e[0m\]:\[\e[38;5;63m\]\W\
 
 bind "set completion-ignore-case on"
 
-shopt -s autocd
 shopt -s cdspell
 shopt -s dirspell
 shopt -s extglob
