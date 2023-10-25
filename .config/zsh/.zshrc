@@ -88,7 +88,7 @@ alias tree='erd -HId physical -s name -y inverted'
 alias ll='eza -l --git --group-directories-first'
 
 function man() {
-	/usr/bin/man "$@" | col -b | bat -pl man
+    /usr/bin/man "$@" | col -b | bat --paging=always --style=plain -l man
 }
 
 function llg() {
