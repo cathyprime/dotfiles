@@ -147,10 +147,16 @@ function tw() {
 	fi
 }
 
-function sync_task() {
-	pushd ~/Documents/task/
-	make sync
-	popd
+function task() {
+	case "$1" in
+		"") command task ;;
+		"sync")
+			pushd ~/Documents/task/
+			make sync
+			popd
+			;;
+		*) command task "$@" ;;
+	esac
 }
 
 function lg() {
