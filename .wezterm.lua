@@ -3,22 +3,16 @@ local wezterm = require 'wezterm'
 local config = {}
 
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 
 wezterm.on("gui-startup", function()
 	local _, _, window = wezterm.mux.spawn_window{}
-	window:gui_window():maximize()
+	window:gui_window():toggle_fullscreen()
 end)
 
-config.term = "wezterm"
-config.front_end = "WebGpu"
-config.webgpu_preferred_adapter={
-	backend="Vulkan",
-	device_type="Cpu",
-	name="llvmpipe (LLVM 14.0.0, 256 bits)"
-}
 
+config.term = "wezterm"
 config.colors = {
 	foreground = "#dcd7ba",
 	background = "#000000",
@@ -38,30 +32,35 @@ config.colors = {
 	indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
 }
 
--- local kanagawa = wezterm.color.get_builtin_schemes()["Kanagawa (Gogh)"] kanagawa.background = "black"
--- config.color_schemes = {
-	-- 	["Kanagawa (Gogh)"] = kanagawa
-	-- }
-	-- config.color_scheme = "Kanagawa (Gogh)"
-	config.foreground_text_hsb = {
-		hue = 1.00,
-		saturation = 1.00,
-		brightness = 1.00
-	}
-	config.font = wezterm.font_with_fallback({
-		"JetBrains Mono",
-		"Hack Nerd Font Mono"
-	})
-	config.font_size = 16.5
-	config.force_reverse_video_cursor = true
-	config.window_padding = {
-		left = 0,
-		right = 0,
-		top = 0,
-		bottom = 0,
-	}
-	config.window_background_opacity = 0.8
-	config.window_decorations = "RESIZE"
-	config.hide_tab_bar_if_only_one_tab = true
+config.foreground_text_hsb = {
+	hue = 1.00,
+	saturation = 1.00,
+	brightness = 1.00
+}
+config.font = wezterm.font_with_fallback({
+	"JetBrains Mono",
+	"Hack Nerd Font Mono"
+})
+config.font_size = 16.5
+config.force_reverse_video_cursor = true
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
+}
+config.window_background_opacity = 0.8
+config.window_decorations = "RESIZE"
+config.hide_tab_bar_if_only_one_tab = true
 
-	return config
+config.background = {
+	{
+		source = {
+			File = ""
+		},
+		height = "Cover",
+		opacity = 0.2
+	}
+}
+
+return config
