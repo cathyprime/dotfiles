@@ -59,7 +59,11 @@ config.background = {
 			File = ""
 		},
 		height = "Cover",
-		opacity = 0.2
+		hsb = {
+			hue = 1.0,
+			saturation = 1.0,
+			brightness = 0.20,
+		}
 	}
 }
 
