@@ -6,3 +6,5 @@ pushd nerd-fonts
 git sparse-checkout add patched-fonts/Hack
 git checkout v2.3.3
 ./install.sh
+popd
+rm -rf nerd-fonts
