@@ -8,6 +8,7 @@ end
 
 wezterm.on("gui-startup", function()
 	local _, _, window = wezterm.mux.spawn_window{}
+	window:gui_window():maximize()
 	window:gui_window():toggle_fullscreen()
 end)
 
@@ -44,7 +45,7 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 16.5
 config.force_reverse_video_cursor = true
 config.window_padding = {
-	left = 0,
+	left = "4px",
 	right = 0,
 	top = 0,
 	bottom = 0,
