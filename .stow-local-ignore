@@ -7,3 +7,4 @@ scripts
 ^\.gitignore$
 .config/zsh/zsh-autosuggestions
 .config/zsh/zsh-syntax-highlighting
+Makefile
