@@ -52,7 +52,7 @@ get_git() {
 	fi
 }
 
-PROMPT='%F{208}cwd%f -> %F{160}$(get_cwd)%f %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f~> '
+PROMPT='%F{208}cwd%f -> %F{160}$(get_cwd)%f %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f>>= '
 RPROMPT='%F{red}$(check_exit_code)%f'
 
 search-history() {
