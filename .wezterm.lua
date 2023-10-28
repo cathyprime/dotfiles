@@ -42,10 +42,10 @@ config.font = wezterm.font_with_fallback({
 	"JetBrains Mono",
 	"Hack Nerd Font Mono"
 })
-config.font_size = 16.5
+config.font_size = 13.5
 config.force_reverse_video_cursor = true
 config.window_padding = {
-	left = "4px",
+	left = "3px",
 	right = 0,
 	top = 0,
 	bottom = 0,
@@ -63,7 +63,7 @@ config.background = {
 		hsb = {
 			hue = 1.0,
 			saturation = 1.0,
-			brightness = 0.20,
+			brightness = 0.10,
 		}
 	}
 }
