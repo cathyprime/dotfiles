@@ -55,17 +55,17 @@ get_git() {
 PROMPT='%F{208}cwd%f -> %F{160}$(get_cwd)%f %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f>>= '
 RPROMPT='%F{red}$(check_exit_code)%f'
 
-search-history() {
-	local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden --height=40%)
-	if [[ -n $selected ]]; then
-		zle reset-prompt
-		zle -U "$selected"
-	fi
-}
+# function search-history() {
+# 	local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden --height=40%)
+# 	if [[ -n $selected ]]; then
+# 		zle reset-prompt
+# 		zle -U "$selected"
+# 	fi
+# }
 
-zle -N search-history
+# zle -N search-history
 
-bindkey '^R' search-history
+# bindkey '^R' search-history
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
