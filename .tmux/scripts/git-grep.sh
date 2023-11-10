@@ -2,7 +2,7 @@
 
 rm -f /tmp/git_clipboard
 mkfifo /tmp/git_clipboard
-( tmux popup -E -h 50% -w 100% -y W -x W "git log --oneline --all\
+( tmux popup -T "git commits" -E -h 50% -w 100% -y W -x W "git log --oneline --all\
     | fzf --preview 'git show --color=always {+1}'\
     | sed 's#\([0-9a-f]\{7\}\) .*#\1#'\
     | tr -d '\n' > /tmp/git_clipboard") &
