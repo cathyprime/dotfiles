@@ -1,6 +1,9 @@
 #!/bin/bash
 
 ses=$(tmux ls | fzf)
+if [[ "$ses" == "" ]]; then
+	exit 0
+fi
 ses=$(echo "$ses" | sed "s/:.*//")
 tmux switch -t "$ses"
 exit 0
