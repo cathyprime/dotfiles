@@ -38,9 +38,22 @@ config.foreground_text_hsb = {
 	saturation = 1.00,
 	brightness = 1.00
 }
+
+local function monaspace(name)
+	return {
+		family = "Monaspace " .. name,
+		harfbuzz_features = { 'ss01=1', 'ss02=1', 'ss03=1', 'ss04=1', 'ss05=1', 'ss06=1', 'ss07=1', 'ss08=1', 'calt=1', 'dlig' }
+	}
+end
+
 config.font = wezterm.font_with_fallback({
 	"JetBrains Mono",
-	"Hack Nerd Font Mono"
+	"Hack Nerd Font Mono",
+	(monaspace "Neon"),
+	(monaspace "Argon"),
+	(monaspace "Xenon"),
+	(monaspace "Radon"),
+	(monaspace "Krypton"),
 })
 config.font_size = 13.5
 config.force_reverse_video_cursor = true
@@ -59,11 +72,12 @@ config.background = {
 		source = {
 			File = ""
 		},
+		-- attachment = "Scroll",
 		height = "Cover",
 		hsb = {
 			hue = 1.0,
 			saturation = 1.0,
-			brightness = 0.10,
+			brightness = 0.05,
 		}
 	}
 }
