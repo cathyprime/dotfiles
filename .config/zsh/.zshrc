@@ -45,6 +45,11 @@ colors() {
 	done
 }
 
+function polygon() {
+	yes | rm -rf ~/Polygon/*
+	yes | rm -rf ~/Polygon/.*
+}
+
 get_git() {
 	local branch=$(git branch 2>/dev/null | grep '*' | sed "s/\* //g")
 	if [[ -n "$branch" ]]; then
