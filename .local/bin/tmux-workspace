@@ -17,6 +17,7 @@ $HOME/.config/nvim-test
 $HOME/Repositories/dotfiles/.config
 $HOME/Repositories/dotfiles/home-manager/
 $HOME/Downloads
+$HOME/Polygon
 EOC
 )
 
