@@ -46,8 +46,7 @@ colors() {
 }
 
 function polygon() {
-	yes | rm -rf ~/Polygon/*
-	yes | rm -rf ~/Polygon/.*
+	rm -rf ~/Polygon/(.*|*)
 }
 
 get_git() {
