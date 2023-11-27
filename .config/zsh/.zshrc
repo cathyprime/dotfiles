@@ -3,16 +3,12 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=
 autoload -U compinit;
 compinit -i
 
-# eval $(starship init zsh)
-
 HISTFILE=~/.config/zsh/zsh_history
 
 stty -ixon
 
 source ~/.cargo/env
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -59,24 +55,12 @@ get_git() {
 PROMPT='%F{208}cwd%f -> %F{160}$(get_cwd)%f %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f>>= '
 RPROMPT='%F{red}$(check_exit_code)%f'
 
-# function search-history() {
-# 	local selected=$(fc -l -n -1 0 | awk '!seen[$0]++' | fzf +s -x --preview-window=hidden --height=40%)
-# 	if [[ -n $selected ]]; then
-# 		zle reset-prompt
-# 		zle -U "$selected"
-# 	fi
-# }
-
-# zle -N search-history
-
-# bindkey '^R' search-history
 bindkey "^[[3~" delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
 setopt promptsubst
 setopt promptpercent
-# setopt autopushd
 setopt autolist
 setopt sharehistory
 
@@ -87,14 +71,12 @@ alias gs='git status'
 alias la='eza -la --git --group-directories-first'
 alias ls='eza --git --group-directories-first'
 alias qmkcd='cd ~/Repositories/misc/qmk_firmware/'
-# alias man=batman
-# export MANPAGER="bat --plain"
 alias tree='erd -HId physical -s name -y inverted'
 
 alias ll='eza -l --git --group-directories-first'
 
 function man() {
-    /usr/bin/man "$@" | col -b | bat --paging=always --style=plain -l man
+	/usr/bin/man "$@" | col -b | bat --paging=always --style=plain -l man
 }
 
 function llg() {
