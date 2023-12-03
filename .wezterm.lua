@@ -12,7 +12,6 @@ wezterm.on("gui-startup", function()
 	window:gui_window():toggle_fullscreen()
 end)
 
-
 config.term = "wezterm"
 config.colors = {
 	foreground = "#dcd7ba",
@@ -47,7 +46,7 @@ local function monaspace(name)
 end
 
 config.font = wezterm.font_with_fallback({
-	"JetBrains Mono",
+	"JetBrainsMono NFM",
 	"Hack Nerd Font Mono",
 	(monaspace "Neon"),
 	(monaspace "Argon"),
@@ -55,7 +54,7 @@ config.font = wezterm.font_with_fallback({
 	(monaspace "Radon"),
 	(monaspace "Krypton"),
 })
-config.font_size = 13.5
+config.font_size = 15
 config.force_reverse_video_cursor = true
 config.window_padding = {
 	left = "3px",
