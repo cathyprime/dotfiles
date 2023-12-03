@@ -34,7 +34,7 @@ type=$(echo "$selected" | cut -d ' ' -f1 | sed 's#\[\(.*\)\]:.*#\1#')
 branch=$(echo "$selected" | cut -d ' ' -f2)
 curr_branch=$(git branch | grep "\* " | sed 's#..##')
 
-git stash -aum "tmux-checkout-autostash-${curr_branch}" >/dev/null 2>&1
+git stash push -am "tmux-checkout-autostash-${curr_branch}" >/dev/null 2>&1
 
 if [[ "Local" == "$type" ]]; then
 	git switch "$branch" >/dev/null 2>&1
