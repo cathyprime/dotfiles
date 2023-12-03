@@ -17,7 +17,6 @@ alias amm=amm-31
 alias cat=bat
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
-alias find=fd
 alias gs='git status'
 alias la='eza -la --git --group-directories-first'
 alias ll='eza -l --git --group-directories-first'
