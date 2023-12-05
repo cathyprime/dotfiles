@@ -54,7 +54,7 @@ config.font = wezterm.font_with_fallback({
 	(monaspace "Radon"),
 	(monaspace "Krypton"),
 })
-config.font_size = 15
+config.font_size = 14
 config.force_reverse_video_cursor = true
 config.window_padding = {
 	left = "3px",
