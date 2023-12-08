@@ -12,6 +12,7 @@ wezterm.on("gui-startup", function()
 	window:gui_window():toggle_fullscreen()
 end)
 
+config.enable_kitty_keyboard = true
 config.term = "wezterm"
 config.colors = {
 	foreground = "#dcd7ba",
@@ -69,7 +70,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.background = {
 	{
 		source = {
-			File = ""
+			File = "/home/madie/Pictures/167b40e7a1001bdd9fbb122dea885ade.jpg"
 		},
 		-- attachment = "Scroll",
 		height = "Cover",
