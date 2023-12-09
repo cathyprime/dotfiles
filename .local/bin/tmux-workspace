@@ -21,9 +21,20 @@ $HOME/Polygon
 EOC
 )
 
-if [[ $# -eq 1 && $1 != "force" ]]; then
+if [[ $1 == "list" ]]; then
+	returnval=$(fd . --exact-depth=1 -t d -H "${paths[@]}"    \
+		--exclude=misc									      \
+		--exclude=nerd-fonts							      \
+		| cat - <(echo -e "$additional_choices")			  \
+		| grep -vE "^$HOME/Repositories/school/$"			  \
+		| grep -vE "^$HOME/Repositories/neovim-plugins/$")
+	echo "$returnval"
+	exit 0
+fi
+
+if [[ $# -eq 1 && $1 != "force" && $1 != "list" ]]; then
 	selected=$1
-elif  [[ "$(pwd)" =~ \.git\/ && $1 != "force" ]]; then
+elif  [[ "$(pwd)" =~ \.git\/ && $1 != "force" && $1 != "list" ]]; then
 	selected=$(pwd | sed 's#\(.*\.git\/\).*#\1#')
 else
 	selected=$(fd . --exact-depth=1 -t d -H "${paths[@]}" \
