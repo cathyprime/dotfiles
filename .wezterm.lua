@@ -13,6 +13,15 @@ wezterm.on("gui-startup", function()
 end)
 
 config.enable_kitty_keyboard = true
+local act = wezterm.action
+config.leader = { key = "a", mods = "CTRL", timeout_miliseconds = 1000 }
+config.keys = {
+	{
+		key = 's',
+		mods = 'ALT',
+		action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
+	},
+}
 config.term = "wezterm"
 config.colors = {
 	foreground = "#dcd7ba",
@@ -66,6 +75,8 @@ config.window_padding = {
 config.window_background_opacity = 0.8
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = true
 
 config.background = {
 	{
