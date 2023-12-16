@@ -42,7 +42,7 @@ colors() {
 }
 
 function polygon() {
-	rm -rf ~/Polygon/(.*|*)
+	rm -rf ~/Polygon/(.*|*) 2>/dev/null
 }
 
 get_git() {
@@ -174,9 +174,18 @@ function nvimt () {
 	NVIM_APPNAME=nvim-test nvim "$@"
 }
 
+function greeter() {
+	local messages=(
+		"VI VI VI"
+	)
+	local rand=$(( $RANDOM % ${#messages[@]} + 1))
+	echo "${messages[$rand]}"
+}
+
 echo
 echo
 echo "$(date)"
 echo "$(date +%Y) the year of linux desktop!"
+echo "$(greeter)"
 echo
 export PATH=$(echo -n $PATH | tr ':' '\n' | sort -u | tr '\n' ':')
