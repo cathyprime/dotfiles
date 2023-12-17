@@ -13,6 +13,7 @@ wezterm.on("gui-startup", function()
 end)
 
 config.enable_kitty_keyboard = true
+config.disable_default_key_bindings = true
 local act = wezterm.action
 config.leader = { key = "a", mods = "CTRL", timeout_miliseconds = 1000 }
 config.keys = {
@@ -20,6 +21,11 @@ config.keys = {
 		key = 's',
 		mods = 'ALT',
 		action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
+	},
+	{
+		key = 'P',
+		mods = 'CTRL|SHIFT',
+		action = wezterm.action.ActivateCommandPalette,
 	},
 }
 config.term = "wezterm"
@@ -81,7 +87,7 @@ config.tab_bar_at_bottom = true
 config.background = {
 	{
 		source = {
-			File = "/home/madie/Pictures/167b40e7a1001bdd9fbb122dea885ade.jpg"
+			File = "/home/yoolayna/Pictures/science_fiction_megastructure_space_debris-2201967.png"
 		},
 		-- attachment = "Scroll",
 		height = "Cover",
