@@ -15,7 +15,6 @@ end)
 config.enable_kitty_keyboard = true
 config.disable_default_key_bindings = true
 local act = wezterm.action
-config.leader = { key = "a", mods = "CTRL", timeout_miliseconds = 1000 }
 config.keys = {
 	{
 		key = 's',
@@ -87,7 +86,7 @@ config.tab_bar_at_bottom = true
 config.background = {
 	{
 		source = {
-			File = "/home/yoolayna/Pictures/science_fiction_megastructure_space_debris-2201967.png"
+			File = ""
 		},
 		-- attachment = "Scroll",
 		height = "Cover",
