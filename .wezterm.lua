@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local act = wezterm.action
 
 local config = {}
 
@@ -14,18 +15,22 @@ end)
 
 config.enable_kitty_keyboard = true
 config.disable_default_key_bindings = true
-local act = wezterm.action
 config.keys = {
 	{
-		key = 's',
-		mods = 'ALT',
-		action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
+		key = "s",
+		mods = "ALT",
+		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
 	},
 	{
-		key = 'P',
-		mods = 'CTRL|SHIFT',
+		key = "p",
+		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivateCommandPalette,
 	},
+	{
+		key = "v",
+		mods = "CTRL|SHIFT",
+		action = act.PasteFrom "Clipboard"
+	}
 }
 config.term = "wezterm"
 config.colors = {
@@ -77,7 +82,7 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.window_background_opacity = 0.8
+-- config.window_background_opacity = 0.8
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
@@ -86,14 +91,14 @@ config.tab_bar_at_bottom = true
 config.background = {
 	{
 		source = {
-			File = ""
+			File = os.getenv("HOME") .. "/Pictures/wallpapers/Half Life 2 Citadel Art Hd Wallpapers backgrounds Download.jpg"
 		},
 		-- attachment = "Scroll",
 		height = "Cover",
 		hsb = {
 			hue = 1.0,
 			saturation = 1.0,
-			brightness = 0.05,
+			brightness = 0.1,
 		}
 	}
 }
