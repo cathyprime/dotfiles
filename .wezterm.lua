@@ -24,12 +24,27 @@ config.keys = {
 	{
 		key = "p",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action.ActivateCommandPalette,
+		action = act.ActivateCommandPalette,
 	},
 	{
 		key = "v",
 		mods = "CTRL|SHIFT",
 		action = act.PasteFrom "Clipboard"
+	},
+	{
+		key = "=",
+		mods = "CTRL",
+		action = act.IncreaseFontSize
+	},
+	{
+		key = "-",
+		mods = "CTRL",
+		action = act.DecreaseFontSize
+	},
+	{
+		key = "0",
+		mods = "CTRL",
+		action = act.ResetFontSize
 	}
 }
 config.term = "wezterm"
@@ -91,7 +106,7 @@ config.tab_bar_at_bottom = true
 config.background = {
 	{
 		source = {
-			File = os.getenv("HOME") .. "/Pictures/wallpapers/Half Life 2 Citadel Art Hd Wallpapers backgrounds Download.jpg"
+			File = ""
 		},
 		-- attachment = "Scroll",
 		height = "Cover",
