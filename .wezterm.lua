@@ -22,9 +22,9 @@ config.keys = {
         action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
     },
     {
-        key = "p",
+        key = "c",
         mods = "CTRL|SHIFT",
-        action = act.ActivateCommandPalette,
+        action = act.CopyTo "ClipboardAndPrimarySelection"
     },
     {
         key = "v",
@@ -45,6 +45,11 @@ config.keys = {
         key = "0",
         mods = "CTRL",
         action = act.ResetFontSize
+    },
+    {
+        key = "p",
+        mods = "CTRL|SHIFT",
+        action = act.ActivateCommandPalette,
     }
 }
 config.term = "wezterm"
