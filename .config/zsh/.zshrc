@@ -53,6 +53,14 @@ get_git() {
     fi
 }
 
+jobs() {
+    case "$1" in
+        "") builtin jobs ;;
+        "-P") builtin jobs -p | sed 's;\[[0-9]\+\]\s\s.\s\([0-9]\+\).*;\1;' ;;
+        *) builtin jobs "$@" ;;
+    esac
+}
+
 PROMPT='%F{208}cwd%f -> %F{160}$(get_cwd)%f %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f>>= '
 RPROMPT='%F{red}$(check_exit_code)%f'
 
@@ -71,6 +79,7 @@ setopt promptsubst
 setopt promptpercent
 setopt autolist
 setopt sharehistory
+unsetopt nointeractivecomments
 
 alias amm=amm-31
 alias clean-nvim='rm -rf ~/.local/share/nvim'
