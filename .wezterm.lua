@@ -124,4 +124,12 @@ config.background = {
     }
 }
 
+config.background = {
+    (function()
+        math.randomseed(os.time())
+        local num = math.random(#wallpapers)
+        return wallpapers[num]
+    end)()
+}
+
 return config
