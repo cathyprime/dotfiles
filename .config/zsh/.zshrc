@@ -89,6 +89,7 @@ alias la='eza -la --git --group-directories-first'
 alias ls='eza --git --group-directories-first'
 alias qmkcd='cd ~/Repositories/misc/qmk_firmware/'
 alias ll='eza -l --git --group-directories-first'
+alias nvide=neovide
 
 function cocker() {
     case "$1" in
