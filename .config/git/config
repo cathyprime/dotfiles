@@ -39,4 +39,4 @@
 	tree = "log --graph --decorate --oneline --all"
 
 [init]
-	defaultBranch = main
+	defaultBranch = mistress
