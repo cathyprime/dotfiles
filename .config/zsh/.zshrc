@@ -202,6 +202,9 @@ function nvimt () {
 function greeter() {
     local messages=(
         "VI VI VI"
+        "Trans lives matter"
+        "Trans rights are human rights"
+        ":3 :3 :3"
     )
     local rand=$(( $RANDOM % ${#messages[@]} + 1))
     echo "${messages[$rand]}"
