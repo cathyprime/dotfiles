@@ -12,6 +12,7 @@
 
 [pull]
 	rebase = false
+	ff = only
 
 [user]
 	email = "jaroszynskijulian@gmail.com"
@@ -31,6 +32,7 @@
 	orphan = "!f() { git checkout --orphan $1; git reset --hard && git clean -fd; }; f"
 	please = "push --force-with-lease"
 	pr = "pull --rebase"
+    Push = "push"
 	ra = "rebase --abort"
 	rc = "rebase --continue"
 	ri = "rebase -i"
@@ -40,3 +42,7 @@
 
 [init]
 	defaultBranch = mistress
+[diff]
+	algorith = histogram
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
