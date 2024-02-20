@@ -58,7 +58,7 @@ config.colors = {
     background = "#000000",
 
     cursor_bg = "#c8c093",
-    cursor_fg = "#c8c093",
+    cursor_fg = "#000000",
     cursor_border = "#c8c093",
 
     selection_fg = "#c8c093",
@@ -96,7 +96,7 @@ config.font = wezterm.font_with_fallback({
     (monaspace "Krypton"),
 })
 config.font_size = 14
-config.force_reverse_video_cursor = true
+config.force_reverse_video_cursor = false
 config.window_padding = {
     left = "3px",
     right = 0,
