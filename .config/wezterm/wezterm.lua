@@ -1,5 +1,6 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
+local workspace = require("workspace")
 
 local config = {}
 
@@ -50,6 +51,11 @@ config.keys = {
         key = "p",
         mods = "CTRL|SHIFT",
         action = act.ActivateCommandPalette,
+    },
+    {
+        key = "p",
+        mods = "ALT",
+        action = workspace.switch_workspace(),
     }
 }
 config.term = "wezterm"
@@ -88,6 +94,7 @@ end
 config.font = wezterm.font_with_fallback({
     -- "Berkeley Mono",
     "JetBrainsMono NF",
+    "Noto emoji",
     "Hack Nerd Font Mono",
     (monaspace "Neon"),
     (monaspace "Argon"),
@@ -109,10 +116,10 @@ config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 
-config.background = {
-			File = ""
+local wallpapers = {
     {
         source = {
+            File = os.getenv("HOME") .. "/Pictures/wallpapers/Half Life 2 Citadel Art Hd Wallpapers backgrounds Download.jpg"
         },
         -- attachment = "Scroll",
         height = "Cover",
