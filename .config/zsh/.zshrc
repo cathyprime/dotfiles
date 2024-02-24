@@ -206,12 +206,19 @@ function nvimt () {
 function greeter() {
     local messages=(
         "VI VI VI"
-        "Trans lives matter"
-        "Trans rights are human rights"
-        ":3 :3 :3"
+        "Trans lives matter 🏳️‍⚧️"
+        "Trans rights are human rights 🏳️‍⚧️"
+        ":3 :3 :3 🏳️‍⚧️ 🏳️‍⚧️ 🏳️‍⚧️"
     )
+
+    if [ -n $NVIM -o -n $TMUX ]; then
+        for ((iter=1; iter<${#messages[@]}+1; iter++)); do
+            messages[$iter]=${messages[$iter]//🏳️‍⚧️/}
+        done
+    fi
+
     local rand=$(( $RANDOM % ${#messages[@]} + 1))
-    echo "${messages[$rand]}"
+    echo ${messages[$rand]}
 }
 
 echo
