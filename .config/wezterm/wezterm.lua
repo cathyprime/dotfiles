@@ -116,6 +116,9 @@ config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 
-config.background = require("wallpaper")
+local ok, w = pcall(require, "wallpaper")
+if ok then
+    config.background = w
+end
 
 return config
