@@ -227,4 +227,4 @@ echo "$(date)"
 echo "$(date +%Y) the year of linux desktop!"
 echo "$(greeter)"
 echo
-export PATH=$(echo -n $PATH | tr ':' '\n' | sort -u | tr '\n' ':')
+export PATH=${$(cat <(tr ':' '\n' <<< $PATH | grep -v "$USER" | sort -u) <(tr ':' '\n' <<< $PATH | grep "$USER" | sort -u) | grep -v '^$' | tr '\n' ':')%:}
