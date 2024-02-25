@@ -22,7 +22,7 @@ wezterm.on(
         local foreground = colors.foreground
 
         if hover then
-            background = colors.brights[3]
+            background = "#3c1361"
             foreground = colors.selection_fg
         elseif tab.is_active then
             background = colors.ansi[3]
@@ -64,6 +64,7 @@ wezterm.on("update-right-status", function(window, pane)
         end
 
         table.insert(cells, wezterm.mux.get_active_workspace())
+        table.insert(cells, "active ws: " .. #wezterm.mux.get_workspace_names())
         table.insert(cells, hostname)
     end
 
@@ -84,6 +85,9 @@ wezterm.on("update-right-status", function(window, pane)
 
     local text_fg = colors.foreground
     local elements = {}
+    table.insert(elements, { Foreground = { Color = cell_colors[1] } })
+    table.insert(elements, { Background = { Color = "#16161d" } })
+    table.insert(elements, { Text = SOLID_LEFT_ARROW })
     local num_cells = 0
 
     local function push(text, is_last)
