@@ -212,9 +212,6 @@ function greeter() {
     )
 
     if [[ $NVIM != "" || $TMUX != "" ]]; then
-        echo "triggered"
-        echo $NVIM
-        echo $TMUX
         for ((iter=1; iter<${#messages[@]}+1; iter++)); do
             messages[$iter]=${messages[$iter]//🏳️‍⚧️/}
         done
