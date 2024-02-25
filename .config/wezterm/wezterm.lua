@@ -116,27 +116,6 @@ config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 
-local wallpapers = {
-    {
-        source = {
-            File = os.getenv("HOME") .. "/Pictures/wallpapers/Half Life 2 Citadel Art Hd Wallpapers backgrounds Download.jpg"
-        },
-        -- attachment = "Scroll",
-        height = "Cover",
-        hsb = {
-            hue = 1.0,
-            saturation = 1.0,
-            brightness = 0.1,
-        }
-    }
-}
-
-config.background = {
-    (function()
-        math.randomseed(os.time())
-        local num = math.random(#wallpapers)
-        return wallpapers[num]
-    end)()
-}
+config.background = require("wallpaper")
 
 return config
