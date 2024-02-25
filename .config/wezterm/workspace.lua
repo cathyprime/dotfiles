@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
-local zoxide_path = "tmux-workspace"
+local path_gen = "bash ~/.config/wezterm/workspace.sh"
 
 local workspace_formatter = function(label)
     return wezterm.format({
@@ -11,7 +11,7 @@ end
 
 local function get_zoxide_workspaces(extra_args)
     if extra_args == nil then extra_args = "" end
-    local _, stdout, _ = wezterm.run_child_process({ os.getenv("SHELL"), "-c", zoxide_path .. " list"})
+    local _, stdout, _ = wezterm.run_child_process({ os.getenv("SHELL"), "-c", path_gen})
 
     local workspace_table = {}
     for _, workspace in ipairs(wezterm.mux.get_workspace_names()) do
@@ -53,7 +53,7 @@ local function workspace_switcher(extra_args)
                                 inner_pane
                             )
                             -- increment path score
-                            wezterm.run_child_process({ os.getenv("SHELL"), "-c", zoxide_path .. " add " .. fullPath })
+                            wezterm.run_child_process({ os.getenv("SHELL"), "-c", path_gen .. " add " .. fullPath })
                         else
                             -- if workspace is choosen
                             inner_window:perform_action(
@@ -83,7 +83,7 @@ local function apply_to_config(config)
 end
 
 local function set_zoxide_path(path)
-    zoxide_path = path
+    path_gen = path
 end
 
 local function set_workspace_formatter(formatter)

@@ -94,6 +94,21 @@ local keys = {
         mods = "LEADER|SHIFT",
         action = act.SplitVertical({ domain = "CurrentPaneDomain" })
     },
+    {
+        key = "q",
+        mods = "LEADER|CTRL",
+        action = act.QuitApplication,
+    },
+    {
+        key = ",",
+        mods = "LEADER|CTRL",
+        action = act.MoveTabRelative(-1),
+    },
+    {
+        key = ".",
+        mods = "LEADER|CTRL",
+        action = act.MoveTabRelative(1),
+    },
 }
 
 for i = 1, 9 do
@@ -101,6 +116,14 @@ for i = 1, 9 do
         key = tostring(i),
         mods = "LEADER",
         action = wezterm.action_callback(switch_create_tab(i))
+    })
+end
+
+for i = 1, 9 do
+    table.insert(keys, {
+        key = tostring(i),
+        mods = "LEADER|SHIFT",
+        action = act.MoveTab(i - 1)
     })
 end
 
