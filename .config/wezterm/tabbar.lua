@@ -72,7 +72,20 @@ wezterm.on("update-right-status", function(window, pane)
     table.insert(cells, date)
 
     for _, b in ipairs(wezterm.battery_info()) do
-        table.insert(cells, string.format("%.0f%%", b.state_of_charge * 100))
+        local icon = ""
+        local charge = b.state_of_charge * 100
+        if charge >= 90 then
+            icon = " "
+        elseif charge >= 60 then
+            icon = " "
+        elseif charge >= 30 then
+            icon = " "
+        elseif charge >= 10 then
+            icon = " "
+        else
+            icon = " "
+        end
+        table.insert(cells, 1, string.format("%s %.0f%%", icon, charge))
     end
 
     local cell_colors = {
