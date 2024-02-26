@@ -109,6 +109,11 @@ local keys = {
         mods = "LEADER|CTRL",
         action = act.MoveTabRelative(1),
     },
+    {
+        key = "q",
+        mods = "LEADER",
+        action = act.CloseCurrentTab({ confirm = false })
+    },
 }
 
 for i = 1, 9 do
