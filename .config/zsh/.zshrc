@@ -69,11 +69,12 @@ zle -N edit-command-line
 bindkey "^[[3~" delete-char
 bindkey "" beginning-of-line
 bindkey "" end-of-line
-bindkey '' edit-command-line
+bindkey "" edit-command-line
 bindkey "" history-incremental-search-backward
 bindkey "" history-incremental-search-forward
 bindkey "" up-line-or-search
 bindkey "" down-line-or-search
+bindkey -v
 
 setopt promptsubst
 setopt promptpercent
