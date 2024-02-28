@@ -5,7 +5,6 @@ local act = wezterm.action
 local function switch_create_tab(i)
     return function(win, pane)
         local tab = win:mux_window():tabs_with_info()[i]
-        wezterm.log_info(tab)
         if tab == nil then
             win:mux_window():spawn_tab({})
         end
@@ -114,7 +113,40 @@ local keys = {
         mods = "LEADER",
         action = act.CloseCurrentTab({ confirm = false })
     },
+    {
+        key = "v",
+        mods = "LEADER|CTRL",
+        action = act.QuickSelect
+    },
+    {
+        key = "h",
+        mods = "LEADER|CTRL",
+        action = wezterm.action.QuickSelectArgs {
+            label = "open url",
+            patterns = {
+                "https?://\\S+",
+            },
+            action = wezterm.action_callback(function(window, pane)
+                local url = window:get_selection_text_for_pane(pane)
+                wezterm.log_info("opening: " .. url)
+                wezterm.open_with(url)
+            end),
+        },
+    },
 }
+
+for k, v in pairs({
+    ["h"] = "Left",
+    ["j"] = "Down",
+    ["k"] = "Up",
+    ["l"] = "Right",
+}) do
+    table.insert(keys, {
+        key = tostring(k),
+        mods = "LEADER",
+        action = act.ActivatePaneDirection(v),
+    })
+end
 
 for i = 1, 9 do
     table.insert(keys, {
