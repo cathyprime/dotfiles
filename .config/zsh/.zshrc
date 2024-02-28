@@ -74,7 +74,7 @@ bindkey "" history-incremental-search-backward
 bindkey "" history-incremental-search-forward
 bindkey "" up-line-or-search
 bindkey "" down-line-or-search
-bindkey -v
+bindkey -e
 
 setopt promptsubst
 setopt promptpercent
