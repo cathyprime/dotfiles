@@ -156,12 +156,4 @@ for i = 1, 9 do
     })
 end
 
-for i = 1, 9 do
-    table.insert(keys, {
-        key = tostring(i),
-        mods = "LEADER|SHIFT",
-        action = act.MoveTab(i - 1)
-    })
-end
-
 return keys
