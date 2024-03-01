@@ -32,6 +32,7 @@
 	orphan = "!f() { git checkout --orphan $1; git reset --hard && git clean -fd; }; f"
 	please = "push --force-with-lease"
 	pr = "pull --rebase"
+    psuh = "push"
     Push = "push"
 	ra = "rebase --abort"
 	rc = "rebase --continue"
