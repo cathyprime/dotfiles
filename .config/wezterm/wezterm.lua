@@ -32,6 +32,11 @@ local function monaspace(name)
     }
 end
 
+config.default_cursor_style = "BlinkingBlock"
+config.cursor_blink_rate = 1000
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
+
 config.font = wezterm.font_with_fallback({
     -- "Berkeley Mono",
     "JetBrainsMono NF",
