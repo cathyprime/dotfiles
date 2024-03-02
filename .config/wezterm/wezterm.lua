@@ -51,15 +51,15 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 14
 config.force_reverse_video_cursor = false
 config.window_padding = {
-    left = "3px",
+    left = 6,
     right = 0,
-    top = 0,
+    top = 5,
     bottom = 0,
 }
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = false
+config.tab_bar_at_bottom = true
 
 local ok_w, w = pcall(require, "wallpaper")
 if ok_w then
