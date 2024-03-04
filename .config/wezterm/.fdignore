@@ -19,6 +19,7 @@ neo4j
 .minecraft
 .wine
 .pulsar
+.opam
 .r
 .sbt
 .w3m
