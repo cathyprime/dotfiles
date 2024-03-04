@@ -32,7 +32,7 @@ local function monaspace(name)
     }
 end
 
-config.default_cursor_style = "BlinkingBlock"
+config.default_cursor_style = "SteadyBlock"
 config.cursor_blink_rate = 1000
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
