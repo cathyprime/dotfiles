@@ -51,9 +51,9 @@ config.font = wezterm.font_with_fallback({
 config.font_size = 14
 config.force_reverse_video_cursor = false
 config.window_padding = {
-    left = 6,
+    left = 3,
     right = 0,
-    top = 5,
+    top = 0,
     bottom = 0,
 }
 config.window_decorations = "RESIZE"
