@@ -59,7 +59,7 @@ config.window_padding = {
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 
 local ok_w, w = pcall(require, "wallpaper")
 if ok_w then
