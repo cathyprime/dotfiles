@@ -48,7 +48,13 @@ config.font = wezterm.font_with_fallback({
     (monaspace "Radon"),
     (monaspace "Krypton"),
 })
-config.font_size = 14
+
+if wezterm.hostname() == "luna" then
+    config.font_size = 13.1
+else
+    config.font_size = 14
+end
+
 config.force_reverse_video_cursor = false
 config.window_padding = {
     left = 0,
@@ -58,6 +64,7 @@ config.window_padding = {
 }
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = false
+config.hide_mouse_cursor_when_typing = true
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
 
