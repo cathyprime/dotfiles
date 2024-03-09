@@ -55,5 +55,8 @@ function! Scratch(ft, mods)
         exec l:cmd
 endfunction
 
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : "") . "k"
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : "") . "j"
+
 command! -nargs=? Scratch call Scratch(<q-args>, <q-mods>)
 nnoremap <silent> <leader>os :<c-u>Scratch sh<cr>
