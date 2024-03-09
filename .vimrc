@@ -4,18 +4,24 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-colorscheme habamax
+colorscheme evening
 set splitbelow splitright
 set nu rnu
-set hls
-set cursorline
+set hidden
 set wildmenu
 set scrolloff=8
-set showcmd
-set shortmess-=S
+set showcmd showmode
+set undofile undodir=$HOME/.vim/undo
+set pumheight=8
+set shortmess-=S shortmess+=c
 set notimeout
 set laststatus=2
 set path=.,**
+set tabstop=4 shiftwidth=4 autoindent smartindent
+set wrap textwidth=100
+set ignorecase smartcase incsearch hls is
+set cursorline guicursor=i-ci-ve:block
+set termguicolors
 
 let mapleader = " "
 
@@ -29,7 +35,14 @@ call plug#end()
 nnoremap <silent> <c-l> :exec 'noh \| redraw! \| diffupdate!'<cr>
 nnoremap <silent> <leader>oc :e ~/.vimrc<cr>
 nnoremap <silent> <leader>ob :e ~/.bashrc<cr>
-imap <c-s> <Plug>ISurround
+
+nmap s <plug>Ysurround
+nmap S <plug>YSurround
+nmap ss <plug>Yssurround
+nmap SS <plug>YSsurround
+xmap s <plug>VSurround
+xmap S <plug>VgSurround
+imap <c-s> <plug>ISurround
 
 function! Scratch(ft, mods)
         let old_ft = &filetype
@@ -43,3 +56,4 @@ function! Scratch(ft, mods)
 endfunction
 
 command! -nargs=? Scratch call Scratch(<q-args>, <q-mods>)
+nnoremap <silent> <leader>os :<c-u>Scratch sh<cr>
