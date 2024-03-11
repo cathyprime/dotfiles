@@ -52,7 +52,7 @@ config.font = wezterm.font_with_fallback({
 if wezterm.hostname() == "luna" then
     config.font_size = 14.8
 elseif wezterm.hostname() == "juno" then
-    config.font_size = 12.8
+    config.font_size = 16.8
 else
     config.font_size = 14
 end
