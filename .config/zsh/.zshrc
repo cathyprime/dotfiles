@@ -212,7 +212,7 @@ function greeter() {
         ":3 :3 :3 🏳️‍⚧️ 🏳️‍⚧️ 🏳️‍⚧️"
     )
 
-    if [[ $NVIM != "" || $TMUX != "" ]]; then
+    if [[ $NVIM != "" || $TMUX != "" || $VIM != "" ]]; then
         for ((iter=1; iter<${#messages[@]}+1; iter++)); do
             messages[$iter]=${messages[$iter]//🏳️‍⚧️/}
         done
