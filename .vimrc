@@ -5,6 +5,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 colorscheme evening
+syntax on
 set splitbelow splitright
 set nu rnu
 set hidden
