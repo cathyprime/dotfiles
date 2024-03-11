@@ -12,6 +12,7 @@ neo4j
 .local
 .cargo
 .npm
+.vim
 .cache
 .rustup
 .pyenv
