@@ -6,5 +6,6 @@ scripts
 ^/.*\.sh
 ^\.gitignore$
 .config/zsh/zsh-autosuggestions
+.vim
 .config/zsh/zsh-syntax-highlighting
 Makefile
