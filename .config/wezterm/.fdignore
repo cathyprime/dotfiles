@@ -26,6 +26,7 @@ neo4j
 .w3m
 .yarn
 .mypy*
+venvs
 .paradox*
 .gradle*
 .java*
