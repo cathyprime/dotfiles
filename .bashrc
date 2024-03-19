@@ -19,24 +19,4 @@ alias ll="ls -l --color"
 alias ls="ls --color"
 alias gs="git status"
 
-# >>> coursier install directory >>>
-export PATH="$PATH:$USER/.local/share/coursier/bin"
-# <<< coursier install directory <<<
-
-function lg() {
-	if [ $# -gt 0 ]; then
-		lazygit -p "$@"
-	else
-		lazygit
-	fi
-}
-
-function lt() {
-	if [ "$1" -gt 0 ]; then
-		eza --tree --level="$1" --long --icons --git --group-directories-first
-	else
-		eza --tree --level=2 --long --icons --git --group-directories-first
-	fi
-}
-
 . "$HOME/.cargo/env"
