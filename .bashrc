@@ -18,5 +18,3 @@ alias la="ls -la --color"
 alias ll="ls -l --color"
 alias ls="ls --color"
 alias gs="git status"
-
-. "$HOME/.cargo/env"
