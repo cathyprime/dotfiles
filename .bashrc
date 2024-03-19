@@ -13,12 +13,11 @@ shopt -s extglob
 shopt -s globasciiranges
 shopt -s globstar
 
-alias clean-nvim='rm -rf ~/.local/share/nvim'
-alias clip='xclip -sel c'
-alias gs='git status'
-alias la='eza -la --git --group-directories-first'
-alias ll='eza -l --git --group-directories-first'
-alias ls='eza --git --group-directories-first'
+alias clean-nvim="rm -rf ~/.local/share/nvim"
+alias la="ls -la --color"
+alias ll="ls -l --color"
+alias ls="ls --color"
+alias gs="git status"
 
 # >>> coursier install directory >>>
 export PATH="$PATH:$USER/.local/share/coursier/bin"
