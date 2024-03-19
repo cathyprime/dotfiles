@@ -13,24 +13,12 @@ shopt -s extglob
 shopt -s globasciiranges
 shopt -s globstar
 
-alias amm=amm-31
-alias cat=bat
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
 alias gs='git status'
 alias la='eza -la --git --group-directories-first'
 alias ll='eza -l --git --group-directories-first'
 alias ls='eza --git --group-directories-first'
-alias lt4='eza --tree --level=4 --long --icons --git --group-directories-first'
-alias lt='eza --tree --level=2 --long --icons --git --group-directories-first'
-alias man=batman
-alias new-nvim='begin; set -lx NVIM_APPNAME new-nvim; nvim; end;'
-alias tree='erd -HId physical -s name -y inverted'
-alias v-clean='begin; set -lx NVIM_APPNAME lazy-clean; nvim; end;'
-alias z=zellij
-alias za='zellij attach'
-alias zl='zellij -l compact'
-alias zr='zellij run --'
 
 # >>> coursier install directory >>>
 export PATH="$PATH:$USER/.local/share/coursier/bin"
@@ -45,10 +33,11 @@ function lg() {
 }
 
 function lt() {
-	if [ $1 -gt 0 ]; then
-		eza --tree --level=$1 --long --icons --git --group-directories-first
+	if [ "$1" -gt 0 ]; then
+		eza --tree --level="$1" --long --icons --git --group-directories-first
 	else
 		eza --tree --level=2 --long --icons --git --group-directories-first
 	fi
 }
+
 . "$HOME/.cargo/env"
