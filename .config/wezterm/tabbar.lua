@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local colors = require("colors")
 local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
+-- local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 
 local function tab_title(tab_info)
     local title = tab_info.tab_title

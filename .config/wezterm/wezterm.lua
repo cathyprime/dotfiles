@@ -81,5 +81,6 @@ if ok_k then
 end
 
 pcall(require, "tabbar")
+pcall(require, "zenmode")
 
 return config
