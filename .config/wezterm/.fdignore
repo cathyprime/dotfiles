@@ -11,6 +11,9 @@ isos
 neo4j
 .local
 .cargo
+.dotnet
+.nuget
+.templateengine
 .npm
 .vim
 .cache
