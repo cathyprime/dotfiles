@@ -82,7 +82,6 @@ setopt autolist
 setopt sharehistory
 unsetopt nointeractivecomments
 
-alias amm=amm-31
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias clip='xclip -sel c'
 alias gs='git status'
