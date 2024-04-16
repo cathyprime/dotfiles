@@ -8,7 +8,6 @@ HISTFILE=~/.config/zsh/zsh_history
 
 stty -ixon
 
-source ~/.cargo/env
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 HISTSIZE=10000
