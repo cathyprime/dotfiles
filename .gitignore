@@ -5,7 +5,6 @@ home-manager/flake.lock
 .config/zsh/zsh-autosuggestions
 .config/zsh/zsh-syntax-highlighting
 .config/zsh/zsh_history
-.config/zsh/.zshenv
 .config/zsh/.zcompdump
 .config/zsh/completions
 /.config/zsh/completion/

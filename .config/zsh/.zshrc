@@ -41,7 +41,7 @@ colors() {
     done
 }
 
-function polygon() {
+polygon() {
     rm -rf ~/Polygon/(.*|*) 2>/dev/null
 }
 
@@ -82,44 +82,19 @@ setopt sharehistory
 unsetopt nointeractivecomments
 
 alias clean-nvim='rm -rf ~/.local/share/nvim'
-alias clip='xclip -sel c'
 alias gs='git status'
 alias la='eza -la --git --group-directories-first'
 alias ls='eza --git --group-directories-first'
 alias qmkcd='cd ~/Repositories/misc/qmk_firmware/'
 alias ll='eza -l --git --group-directories-first'
 alias nvide=neovide
+alias man=batman
 
-function cocker() {
-    case "$1" in
-        "") docker compose ;;
-        "raise") docker compose up -d "${@:2}" ;;
-        "raze") docker compose down "${@:2}" ;;
-        *) docker compose "$@" ;;
-    esac
-}
-
-function man() {
-    /usr/bin/man "$@" | col -b | bat --paging=always --style=plain -l man
-}
-
-function llg() {
-    git rev-parse --is-inside-work-tree > /dev/null 2>&1
-    if [[ $? -eq 0 ]]; then
-        git status
-    fi
-    eza -l --git --group-directories-first "$@"
-}
-
-function git-grep() {
-    git log --oneline --all | fzf --preview 'git show --color=always {+1}' | sed 's#\([0-9a-f]\{7\}\) .*#\1#' | tr -d '\n' | xclip -sel c
-}
-
-function spath() {
+spath() {
     echo $PATH | sed 's/:/\n/g'
 }
 
-function docker() {
+docker() {
     case "$1" in
         "") command docker ;;
         "lazy") lazydocker ;;
@@ -127,7 +102,7 @@ function docker() {
     esac
 }
 
-function git() {
+git() {
     case "$1" in
         "") command git ;;
         "lazy") lazygit ;;
@@ -135,15 +110,7 @@ function git() {
     esac
 }
 
-function start-gentoo() {
-( qemu-system-x86_64 -m 8G -enable-kvm \
-                     -cdrom ~/Downloads/gentoo-amd64-minimal-20230903T170202Z.iso \
-                     -drive file=/home/yoolayna/qemu/gentoo.cow,format=qcow2 \
-                     -boot order=d) &
-                   disown
-}
-
-function lt() {
+lt() {
     if (( $# > 0 )); then
         eza --tree --long --icons --git --group-directories-first --level="$1"
     else
@@ -151,7 +118,7 @@ function lt() {
     fi
 }
 
-function tw() {
+tw() {
     case "$1" in
         "") if tmux list-sessions 2>&1 | grep -Eqs "(no server running|no sessions|error connecting)"; then
                 tmux-workspace
@@ -163,19 +130,7 @@ function tw() {
     esac
 }
 
-function task() {
-    case "$1" in
-        "") command task ;;
-        "sync")
-            pushd ~/Documents/task/
-            make sync
-            popd
-            ;;
-        *) command task "$@" ;;
-    esac
-}
-
-function lg() {
+lg() {
     if (( $# > 0 )); then
         lazygit -p "$@"
     else
@@ -183,26 +138,11 @@ function lg() {
     fi
 }
 
-function addToPath() {
-    if (( $# == 0)); then
-        echo "Provide a path!"
-    elif [[ $1 == "." ]]; then
-        echo -e "PATH=\"\$PATH:$cwd\"" >> ~/.config/zsh/.zshenv
-    else
-        echo -e "PATH=\"\$PATH:$cwd$@\"" >> ~/.config/zsh/.zshenv
-    fi
-}
-
-function nvimf () {
-    local selected=$(fd . -H --exclude=.git | fzf)
-    nvim $selected
-}
-
-function nvimt () {
+nvimt () {
     NVIM_APPNAME=nvim-test nvim "$@"
 }
 
-function greeter() {
+greeter() {
     local messages=(
         "VI VI VI"
         "Trans lives matter 🏳️‍⚧️"
