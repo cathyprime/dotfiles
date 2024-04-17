@@ -17,7 +17,4 @@ stow:
 	bash ./scripts/prestow.sh
 	bash ./scripts/stow.sh
 
-hack:
-	bash ./scripts/font.sh
-
-all: bob stow hack wezterm nvim zsh
+all: bob stow wezterm nvim zsh
