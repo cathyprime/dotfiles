@@ -1,7 +1,9 @@
 export EDITOR="nvim"
 export GOPATH="$(go env GOPATH)"
-export PATH="${PATH}:${GOPATH}/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
-export PATH="$PATH:$HOME/.local/share/coursier/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+PATH="${PATH}:${GOPATH}/bin"
+PATH="$PATH:$HOME/.local/bin"
+PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
+PATH="$PATH:$HOME/.local/share/coursier/bin"
+PATH="$PATH:$HOME/.cargo/bin"
+
+export PATH
