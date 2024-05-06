@@ -160,7 +160,10 @@ greeter() {
     echo ${messages[$rand]}
 }
 
-[[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 echo
 echo
@@ -168,4 +171,4 @@ echo "$(date)"
 echo "$(date +%Y) the year of linux desktop!"
 echo "$(greeter)"
 echo
-export PATH=${$(cat <(tr ':' '\n' <<< $PATH | grep -v "$USER" | sort -u) <(tr ':' '\n' <<< $PATH | grep "$USER" | sort -u) | grep -v '^$' | tr '\n' ':')%:}
+export PATH=${$(cat <(tr ':' '\n' <<< $PATH | grep "$USER" | sort -u) <(tr ':' '\n' <<< $PATH | grep -v "$USER" | sort -u) | grep -v '^$' | tr '\n' ':')%:}
