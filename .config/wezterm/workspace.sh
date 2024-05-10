@@ -9,7 +9,7 @@ standalone=(
 function fd_search() {
     local path="$1"
     local depth="$2"
-    /usr/bin/fd -H . "$path" --max-depth "$depth" --min-depth "$depth" -t d "${@:3}"
+    /usr/bin/fd . "$path" --max-depth "$depth" --min-depth "$depth" -t d "${@:3}"
 }
 
 home=$(fd_search ~ 2 --ignore-file ~/.config/wezterm/.fdignore)
