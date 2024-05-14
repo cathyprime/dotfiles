@@ -145,16 +145,10 @@ nvimt () {
 greeter() {
     local messages=(
         "VI VI VI"
-        "Trans lives matter 🏳️‍⚧️"
-        "Trans rights are human rights 🏳️‍⚧️"
-        ":3 :3 :3 🏳️‍⚧️ 🏳️‍⚧️ 🏳️‍⚧️"
+        "Trans lives matter"
+        "Trans rights are human rights"
+        ":3 :3 :3"
     )
-
-    if [[ $NVIM != "" || $TMUX != "" || $VIM != "" ]]; then
-        for ((iter=1; iter<${#messages[@]}+1; iter++)); do
-            messages[$iter]=${messages[$iter]//🏳️‍⚧️/}
-        done
-    fi
 
     local rand=$(( $RANDOM % ${#messages[@]} + 1))
     echo ${messages[$rand]}
@@ -165,6 +159,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+transflag
 echo
 echo
 echo "$(date)"
