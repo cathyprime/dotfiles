@@ -1,9 +1,11 @@
 CONFIG="$HOME/.config"
 standalone=(
-    "$HOME/Repositories/"
+    "$CONFIG/nvim"
+    "$HOME/.config/nvim"
+    "$HOME/.config/nvim-test"
     "$HOME/Downloads"
     "$HOME/Polygon"
-    "$CONFIG/nvim"
+    "$HOME/Repositories/"
 )
 
 function fd_search() {
@@ -15,5 +17,14 @@ function fd_search() {
 home=$(fd_search ~ 2 --ignore-file ~/.config/wezterm/.fdignore)
 misc=$(fd_search ~/Repositories/misc 1)
 school=$(fd_search ~/Repositories/school/ 1)
+nvim_plugins=$(fd_search ~/Repositories/neovim-plugins 1)
 
-cat <(echo "$home") <(echo "$misc") <(echo "$school") <(printf '%s\n' "${standalone[@]}") | awk '{ print length, $0 }' | sort -n -s | cut -d" " -f2-
+cat <(echo "$home") \
+    <(echo "$misc") \
+    <(echo "$school") \
+    <(echo "$nvim_plugins") \
+    <(printf '%s\n' "${standalone[@]}") \
+    | awk '{ print length, $0 }' \
+    | sort -ns \
+    | uniq \
+    | cut -d" " -f2-
