@@ -111,10 +111,10 @@ git() {
 }
 
 lt() {
-    if (( $# > 0 )); then
-        eza --tree --long --icons --git --group-directories-first --level="$1"
+    if [[ $# -gt 0 && $1 -eq $1 ]]; then
+        eza --tree --long --icons --git --group-directories-first --level="$1" "${@:2}"
     else
-        eza --tree --long --icons --git --group-directories-first
+        eza --tree --long --icons --git --group-directories-first "$@"
     fi
 }
 
