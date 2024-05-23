@@ -38,7 +38,7 @@ config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 
 config.font = wezterm.font_with_fallback({
-    -- "Berkeley Mono",
+    "IosevkaCustom",
     "JetBrainsMono NF",
     "Noto emoji",
     "Hack Nerd Font Mono",
@@ -50,7 +50,9 @@ config.font = wezterm.font_with_fallback({
 })
 
 if wezterm.hostname() == "luna" then
-    config.font_size = 14.8
+    -- config.font_size = 14.8 -- JetBrainsMono NF
+    config.font_size = 14.3 -- IosevkaCustom
+    -- config.font_size = 13.1
 elseif wezterm.hostname() == "juno" then
     config.font_size = 16.8
 else
