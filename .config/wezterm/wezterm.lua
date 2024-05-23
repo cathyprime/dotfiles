@@ -54,7 +54,8 @@ if wezterm.hostname() == "luna" then
     config.font_size = 14.3 -- IosevkaCustom
     -- config.font_size = 13.1
 elseif wezterm.hostname() == "juno" then
-    config.font_size = 16.8
+    -- config.font_size = 16.8 -- JetBrainsMono NF
+    config.font_size = 17.7 -- IosevkaCustom
 else
     config.font_size = 14
 end
