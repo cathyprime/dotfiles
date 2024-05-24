@@ -74,16 +74,30 @@ wezterm.on("update-right-status", function(window, pane)
     for _, b in ipairs(wezterm.battery_info()) do
         local icon = ""
         local charge = b.state_of_charge * 100
-        if charge >= 90 then
-            icon = " "
+        if charge >= 98 then
+            icon = "󰁹"
+        elseif charge >= 90 then
+            icon = "󰂂"
+        elseif charge >= 80 then
+            icon = "󰂁"
+        elseif charge >= 70 then
+            icon = "󰂀"
         elseif charge >= 60 then
-            icon = " "
+            icon = "󰁿"
+        elseif charge >= 50 then
+            icon = "󰁾"
+        elseif charge >= 40 then
+            icon = "󰁼"
         elseif charge >= 30 then
-            icon = " "
+            icon = "󰁼"
+        elseif charge >= 20 then
+            icon = "󰁺"
         elseif charge >= 10 then
-            icon = " "
+            icon = "󰁺"
+        elseif charge >= 5 then
+            icon = "󰂎"
         else
-            icon = " "
+            icon = ""
         end
         table.insert(cells, 1, string.format("%s %.0f%%", icon, charge))
     end
