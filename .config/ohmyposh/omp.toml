@@ -1,0 +1,175 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+disable_notice = true
+
+[[blocks]]
+  type = "prompt"
+  alignment = "left"
+  newline = true
+
+  [[blocks.segments]]
+    type = "shell"
+    style = "plain"
+    background = "transparent"
+    foreground = "white"
+    template = "{{.Name}}: "
+
+  [[blocks.segments]]
+    type = "path"
+    style = "plain"
+    background = "transparent"
+    foreground = "white"
+    template = "<208>cwd</> -> <160>{{ .Path }}</>"
+
+    [blocks.segments.properties]
+      style = "full"
+
+  [[blocks.segments]]
+    type = "command"
+    style = "plain"
+    foreground = "57"
+
+    [blocks.segments.properties]
+      shell = "sh"
+      command = "sudo -n -v &>/dev/null && echo \"#\" || echo \"$\""
+
+  [[blocks.segments]]
+    type = "git"
+    style = "plain"
+    foreground = "p:grey"
+    background = "transparent"
+    template = "<27>git:(<196>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<cyan>*</></>)</>{{ end }} <45>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+
+    [blocks.segments.properties]
+      branch_icon = ""
+      commit_icon = "@"
+      fetch_status = true
+
+  [[blocks.segments]]
+    type = "dotnet"
+    style = "plain"
+    foreground = "#a381d7"
+    background = "transparent"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "go"
+    style = "plain"
+    foreground = "#7FD5EA"
+    background = "transparent"
+    template = "‭ﳑ {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "haskell"
+    style = "plain"
+    foreground = "#906cff"
+    background = "transparent"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "java"
+    style = "plain"
+    foreground = "#4063D8"
+    background = "transparent"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "kotlin"
+    style = "plain"
+    foreground = "#906cff"
+    background = "transparent"
+    template = "<b>K</b> {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "lua"
+    style = "plain"
+    foreground = "blue"
+    background = "transparent"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "node"
+    style = "plain"
+    foreground = "#6CA35E"
+    background = "transparent"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "ocaml"
+    style = "plain"
+    foreground = "#d08770"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "python"
+    style = "plain"
+    foreground = "#906cff"
+    background = "transparent"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "react"
+    style = "plain"
+    foreground = "#81a1c1"
+    template = " {{ .Full }} "
+
+  [[blocks.segments]]
+    type = "rust"
+    style = "plain"
+    foreground = "#CE412B"
+    background = "transparent"
+    template = " {{ .Full }} "
+
+[[blocks]]
+  type = "rprompt"
+  overflow = "hidden"
+
+  [[blocks.segments]]
+    type = "executiontime"
+    style = "plain"
+    foreground = "yellow"
+    background = "transparent"
+    template = "{{ .FormattedMs }}"
+
+    [blocks.segments.properties]
+      threshold = 5000
+
+  [[blocks.segments]]
+    type = "status"
+    style = "plain"
+    foreground = "red"
+    background = "transparent"
+    template = "{{ .Code }}"
+
+[properties]
+always_enabled = true
+
+[[blocks]]
+  type = "prompt"
+  alignment = "left"
+  newline = true
+
+  [[blocks.segments]]
+    type = "text"
+    style = "plain"
+    foreground_templates = [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}white{{end}}",
+    ]
+    background = "transparent"
+    template = ">>="
+
+[transient_prompt]
+  foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}magenta{{end}}",
+  ]
+  background = "transparent"
+  template = "λ "
+
+[secondary_prompt]
+  foreground = "magenta"
+  background = "transparent"
+  template = "λ "

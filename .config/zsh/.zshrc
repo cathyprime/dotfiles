@@ -1,4 +1,3 @@
-fpath=($HOME/.config/zsh/completions $fpath)
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -U compinit;
 autoload -U edit-command-line
@@ -9,27 +8,10 @@ HISTFILE=~/.config/zsh/zsh_history
 stty -ixon
 
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/completion/oh-my-posh/_oh-my-posh.zsh
 
 HISTSIZE=10000
 SAVEHIST=10000
-
-check_exit_code() {
-    local exit_code=$?
-
-    if [[ $exit_code -ne 0 ]]; then
-        echo $exit_code
-    else
-        echo ""
-    fi
-}
-
-get_cwd() {
-    if [[ $(pwd) == $HOME ]]; then
-        echo "~"
-    else
-        echo $(basename $(pwd))
-    fi
-}
 
 colors() {
     columns=16
@@ -45,13 +27,6 @@ polygon() {
     rm -rf ~/Polygon/(.*|*) 2>/dev/null
 }
 
-get_git() {
-    local branch=$(git branch 2>/dev/null | grep '*' | sed "s/\* //g")
-    if [[ -n "$branch" ]]; then
-        echo "%F{27}git:(%F{196}$branch%F{27})%f "
-    fi
-}
-
 jobs() {
     case "$1" in
         "") builtin jobs ;;
@@ -59,9 +34,37 @@ jobs() {
         *) builtin jobs "$@" ;;
     esac
 }
+if ! command -V oh-my-posh &> /dev/null; then
+    check_exit_code() {
+        local exit_code=$?
 
-PROMPT='%F{208}cwd%f -> %F{160}$(get_cwd)%f %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f>>= '
-RPROMPT='%F{red}$(check_exit_code)%f'
+        if [[ $exit_code -ne 0 ]]; then
+            echo $exit_code
+        else
+            echo ""
+        fi
+    }
+
+    get_cwd() {
+        if [[ $(pwd) == $HOME ]]; then
+            echo "~"
+        else
+            echo $(basename $(pwd))
+        fi
+    }
+
+    get_git() {
+        local branch=$(git branch 2>/dev/null | grep '*' | sed "s/\* //g")
+        if [[ -n "$branch" ]]; then
+            echo "%F{27}git:(%F{196}$branch%F{27})%f "
+        fi
+    }
+
+    PROMPT='%F{208}cwd%f -> %F{160}$(get_cwd)%f %F{57}$(sudo -n -v >/dev/null 2>&1 && echo "#" || echo "$")%f %F{22}$(get_git)%f>>= '
+    RPROMPT='%F{red}$(check_exit_code)%f'
+else
+    eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/omp.toml)"
+fi
 
 zle -N edit-command-line
 
