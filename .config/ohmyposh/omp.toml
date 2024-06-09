@@ -10,13 +10,6 @@ disable_notice = true
   newline = true
 
   [[blocks.segments]]
-    type = "shell"
-    style = "plain"
-    background = "transparent"
-    foreground = "white"
-    template = "{{.Name}}: "
-
-  [[blocks.segments]]
     type = "path"
     style = "plain"
     background = "transparent"
@@ -40,7 +33,7 @@ disable_notice = true
     style = "plain"
     foreground = "p:grey"
     background = "transparent"
-    template = "<27>git:(<196>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<cyan>*</></>)</>{{ end }} <45>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+    template = "<27>git:(<196>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<cyan>*</>{{ end }}</>)</> <45>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
 
     [blocks.segments.properties]
       branch_icon = ""
@@ -150,6 +143,16 @@ always_enabled = true
   type = "prompt"
   alignment = "left"
   newline = true
+
+  [[blocks.segments]]
+    type = "shell"
+    style = "plain"
+    foreground = "white"
+    background = "transparent"
+    template = "{{.Name}} "
+
+    [blocks.segments.properties.mapped_shell_names]
+      zsh = ""
 
   [[blocks.segments]]
     type = "text"
