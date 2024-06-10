@@ -33,7 +33,7 @@ disable_notice = true
     style = "plain"
     foreground = "p:grey"
     background = "transparent"
-    template = "<27>git:(<196>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<cyan>*</>{{ end }}</>)</> <45>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+    template = "<27>git:(<196>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<cyan>*</>{{ end }}</>)</><45>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
 
     [blocks.segments.properties]
       branch_icon = ""
@@ -45,75 +45,75 @@ disable_notice = true
     style = "plain"
     foreground = "#a381d7"
     background = "transparent"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "go"
     style = "plain"
     foreground = "#7FD5EA"
     background = "transparent"
-    template = "‭ﳑ {{ .Full }} "
+    template = " ‭ﳑ {{ .Full }}"
 
   [[blocks.segments]]
     type = "haskell"
     style = "plain"
     foreground = "#906cff"
     background = "transparent"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "java"
     style = "plain"
     foreground = "#4063D8"
     background = "transparent"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "kotlin"
     style = "plain"
     foreground = "#906cff"
     background = "transparent"
-    template = "<b>K</b> {{ .Full }} "
+    template = " <b>K</b> {{ .Full }}"
 
   [[blocks.segments]]
     type = "lua"
     style = "plain"
     foreground = "blue"
     background = "transparent"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "node"
     style = "plain"
     foreground = "#6CA35E"
     background = "transparent"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "ocaml"
     style = "plain"
     foreground = "#d08770"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "python"
     style = "plain"
     foreground = "#906cff"
     background = "transparent"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "react"
     style = "plain"
     foreground = "#81a1c1"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
   [[blocks.segments]]
     type = "rust"
     style = "plain"
     foreground = "#CE412B"
     background = "transparent"
-    template = " {{ .Full }} "
+    template = "  {{ .Full }}"
 
 [[blocks]]
   type = "rprompt"
