@@ -175,4 +175,4 @@ always_enabled = true
 [secondary_prompt]
   foreground = "magenta"
   background = "transparent"
-  template = "λ "
+  template = "-> "
