@@ -34,6 +34,7 @@
 	pr = "pull --rebase"
     psuh = "push"
     Push = "push"
+    Pull = "pull"
 	ra = "rebase --abort"
 	rc = "rebase --continue"
 	ri = "rebase -i"
