@@ -86,12 +86,15 @@ unsetopt nointeractivecomments
 
 alias clean-nvim='rm -rf ~/.local/share/nvim'
 alias gs='git status'
-alias la='eza -la --git --group-directories-first'
-alias ls='eza --git --group-directories-first'
+alias la='eza -la --group-directories-first'
+alias ls='eza --group-directories-first'
 alias qmkcd='cd ~/Repositories/misc/qmk_firmware/'
-alias ll='eza -l --git --group-directories-first'
-alias nvide=neovide
+alias ll='eza -l --group-directories-first'
 alias man=batman
+
+nvide() {
+    zsh -c "neovide &; disown"
+}
 
 spath() {
     echo $PATH | sed 's/:/\n/g'
@@ -115,9 +118,9 @@ git() {
 
 lt() {
     if [[ $# -gt 0 && $1 -eq $1 ]]; then
-        eza --tree --long --icons --git --group-directories-first --level="$1" "${@:2}"
+        eza --tree --long --icons --group-directories-first --level="$1" "${@:2}"
     else
-        eza --tree --long --icons --git --group-directories-first "$@"
+        eza --tree --long --icons --group-directories-first "$@"
     fi
 }
 
