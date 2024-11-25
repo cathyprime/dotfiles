@@ -1,3 +1,5 @@
+# vim: ft=sh
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -U compinit;
 autoload -U edit-command-line
@@ -21,10 +23,6 @@ colors() {
             echo
         fi
     done
-}
-
-polygon() {
-    rm -rf ~/Polygon/(.*|*) 2>/dev/null
 }
 
 jobs() {
