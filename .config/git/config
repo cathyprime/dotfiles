@@ -43,7 +43,7 @@
 	tree = "log --graph --decorate --oneline --all"
 
 [init]
-	defaultBranch = mistress
+	defaultBranch = main
 [diff]
 	algorith = histogram
 
