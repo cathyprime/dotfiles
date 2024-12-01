@@ -64,17 +64,20 @@ else
     eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/omp.toml)"
 fi
 
-zle -N edit-command-line
-
-bindkey "^[[3~" delete-char
-bindkey "" beginning-of-line
-bindkey "" end-of-line
-bindkey "" edit-command-line
-bindkey "" history-incremental-search-backward
-bindkey "" history-incremental-search-forward
-bindkey "" up-line-or-search
-bindkey "" down-line-or-search
 bindkey -e
+bindkey '^[[3~' delete-char
+bindkey '^?' backward-delete-char
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' up-line-or-search
+bindkey '^N' down-line-or-search
+bindkey '^U' backward-kill-line
+bindkey '^[[1;5A' up-line-or-search
+bindkey '^[[1;5B' down-line-or-search
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 setopt promptsubst
 setopt promptpercent
