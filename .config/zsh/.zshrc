@@ -3,6 +3,8 @@
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -U compinit;
 autoload -U edit-command-line
+autoload -U select-word-style
+select-word-style bash
 compinit -i
 
 HISTFILE=~/.config/zsh/zsh_history
@@ -69,6 +71,8 @@ bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' up-line-or-search
@@ -78,6 +82,7 @@ bindkey '^[[1;5A' up-line-or-search
 bindkey '^[[1;5B' down-line-or-search
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
+bindkey "^[[3;5~" kill-word
 
 setopt promptsubst
 setopt promptpercent
