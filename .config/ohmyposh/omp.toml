@@ -1,103 +1,104 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
+version = 3
 final_space = true
-disable_notice = true
+
+[secondary_prompt]
+  template = '-> '
+  foreground = 'magenta'
+  background = 'transparent'
+
+[transient_prompt]
+  template = 'λ '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
 [[blocks]]
-  type = "prompt"
-  alignment = "left"
+  type = 'prompt'
+  alignment = 'left'
   newline = true
 
   [[blocks.segments]]
-    type = "path"
-    style = "plain"
-    background = "transparent"
-    foreground = "white"
-    template = "<208>cwd</> -> <160>{{ .Path }}</>"
+    template = '<208>cwd</> -> <160>{{ .Path }}</>'
+    foreground = 'white'
+    background = 'transparent'
+    type = 'path'
+    style = 'plain'
 
     [blocks.segments.properties]
-      style = "full"
+      cache_duration = 'none'
+      style = 'full'
 
   [[blocks.segments]]
-    type = "command"
-    style = "plain"
-    foreground = "57"
+    foreground = '57'
+    type = 'command'
+    style = 'plain'
 
     [blocks.segments.properties]
-      shell = "sh"
-      command = "sudo -n -v &>/dev/null && echo \"#\" || echo \"$\""
+      cache_duration = 'none'
+      command = 'sudo -n -v &>/dev/null && echo "#" || echo "$"'
+      shell = 'sh'
 
   [[blocks.segments]]
-    type = "git"
-    style = "plain"
-    foreground = "p:grey"
-    background = "transparent"
-    template = "<27>git:(<196>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<cyan>*</>{{ end }}</>)</><45>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>"
+    template = '<27>git:(<196>{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}<cyan>*</>{{ end }}</>)</><45>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    foreground = 'p:grey'
+    background = 'transparent'
+    type = 'git'
+    style = 'plain'
 
     [blocks.segments.properties]
-      branch_icon = ""
-      commit_icon = "@"
+      branch_icon = ''
+      cache_duration = 'none'
+      commit_icon = '@'
       fetch_status = true
 
 [[blocks]]
-  type = "rprompt"
-  overflow = "hidden"
+  type = 'rprompt'
+  overflow = 'hidden'
 
   [[blocks.segments]]
-    type = "executiontime"
-    style = "plain"
-    foreground = "yellow"
-    background = "transparent"
-    template = "{{ .FormattedMs }}"
+    template = '{{ .FormattedMs }}'
+    foreground = 'yellow'
+    background = 'transparent'
+    type = 'executiontime'
+    style = 'plain'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       threshold = 5000
 
   [[blocks.segments]]
-    type = "status"
-    style = "plain"
-    foreground = "red"
-    background = "transparent"
-    template = "{{ .Code }}"
+    template = '{{ .Code }}'
+    foreground = 'red'
+    background = 'transparent'
+    type = 'status'
+    style = 'plain'
 
-[properties]
-always_enabled = true
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
 [[blocks]]
-  type = "prompt"
-  alignment = "left"
+  type = 'prompt'
+  alignment = 'left'
   newline = true
 
   [[blocks.segments]]
-    type = "shell"
-    style = "plain"
-    foreground = "white"
-    background = "transparent"
-    template = "{{.Name}} "
+    template = '{{.Name}} '
+    foreground = 'white'
+    background = 'transparent'
+    type = 'shell'
+    style = 'plain'
 
-    [blocks.segments.properties.mapped_shell_names]
-      zsh = ""
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+      [blocks.segments.properties.mapped_shell_names]
+        zsh = ''
 
   [[blocks.segments]]
-    type = "text"
-    style = "plain"
-    foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}white{{end}}",
-    ]
-    background = "transparent"
-    template = ">>="
+    template = '>>='
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}white{{end}}']
 
-[transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}",
-  ]
-  background = "transparent"
-  template = "λ "
-
-[secondary_prompt]
-  foreground = "magenta"
-  background = "transparent"
-  template = "-> "
+    [blocks.segments.properties]
+      cache_duration = 'none'
