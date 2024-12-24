@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ ! -f ./maker ]; then
+    [ -f ./maker.cc ] && g++ -o maker maker.cc || echo 1>&2 "neither maker nor maker.cc found in current directory"
+fi
+
+[ -f ./maker ] && ./maker "$@"
+
+# vim: ft=sh
