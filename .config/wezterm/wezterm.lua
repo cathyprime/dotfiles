@@ -38,7 +38,7 @@ config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 
 config.font = wezterm.font_with_fallback({
-    "IosevkaCustom",
+    "Iosevka",
     "JetBrainsMono NF",
     "Noto emoji",
     "Hack Nerd Font Mono",
